@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Job Detection System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <h1 class="main-title">Fake Job Detection System</h1>
+            <p class="subtitle">AI-Powered Job Fraud Detection</p>
+        </header>
+
+        <form method="POST" class="analysis-form">
+
+            <textarea name="job_description" placeholder="Paste a job description here..."
+                required>{{ job_description }}</textarea>
+
+            <div class="website-input-group">
+
+                <label for="company_website">
+                    Company Website (Optional)
+                </label>
+
+                <input type="url" id="company_website" name="company_website" placeholder="https://company.com"
+                    value="{{ company_website or '' }}">
+
+            </div>
+
+            <button type="submit" class="cta-button">
+                Analyze Job Posting
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result-container">
+
+            <div class="result-card">
+
+                <!-- Final Verdict -->
+
+                {% if prediction == "Real Job" %}
+
+                <p class="real-result">
+                    ✅ Legitimate Job Posting
+                </p>
+
+                {% elif prediction == "Suspicious Job" %}
+
+                <p class="warning-result">
+                    ⚠ Suspicious Job Posting
+                </p>
+
+                {% else %}
+
+                <p class="fake-result">
+                    🚨 Fake Job Posting
+                </p>
+
+                {% endif %}
+
+                <!-- Score Dashboard -->
+
+                <div class="score-section">
+
+                    <h3>📊 Detection Scores</h3>
+
+                    <div class="score-grid">
+
+                        <div class="score-box">
+                            <span>Final Score</span>
+                            <strong>{{ final_score }}/100</strong>
+                        </div>
+
+                        <div class="score-box">
+                            <span>ML Score</span>
+                            <strong>{{ ml_score }}/100</strong>
+                        </div>
+
+                        <div class="score-box">
+                            <span>AI Score</span>
+                            <strong>{{ ai_score }}/100</strong>
+                        </div>
+
+                        <div class="score-box">
+                            <span>Website Score</span>
+                            <strong>{{ website_score }}/100</strong>
+                        </div>
+
+                        <div class="score-box">
+                            <span>Social Score</span>
+                            <strong>{{ social_score }}/100</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Website Analysis -->
+
+                {% if website_analysis %}
+
+                <div class="analysis-section">
+
+                    <h3>🌐 Website Analysis</h3>
+
+                    <p>
+                        <strong>Risk Level:</strong>
+                        {{ website_analysis.risk_level }}
+                    </p>
+
+                    <p>
+                        <strong>Summary:</strong>
+                        {{ website_analysis.summary }}
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+                <!-- Social Analysis -->
+
+                {% if social_analysis %}
+
+                <div class="analysis-section">
+
+                    <h3>📱 Social Media Analysis</h3>
+
+                    <p>
+                        {{ social_analysis.interpretation }}
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+                <!-- Job Analysis -->
+
+                <div class="analysis-section">
+
+                    <h3>🧠 Job Description Analysis</h3>
+
+                    <p>
+                        <strong>Risk Level:</strong>
+                        {{ risk_level }}
+                    </p>
+
+                    <h4>Reasons</h4>
+
+                    <ul class="reasons-list">
+
+                        {% for reason in reasons %}
+                        <li>{{ reason }}</li>
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        <div class="examples-grid">
+
+            <div class="example-card">
+                <h3>Real Job Example</h3>
+
+                <textarea readonly>
+
+Software Engineer
+
+Company: Goldman Sachs
+
+Requirements:
+
+* Bachelor's Degree
+* Python
+* SQL
+* Team Collaboration
+
+Benefits:
+
+* Health Insurance
+* Paid Leave
+* Career Growth </textarea>
+            </div>
+
+            <div class="example-card">
+                <h3>Fake Job Example</h3>
+
+                <textarea readonly>
+
+Earn ₹50,000/week from home.
+
+No experience required.
+
+Registration fee mandatory.
+
+Limited seats available.
+
+Apply immediately. </textarea>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
