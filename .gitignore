@@ -1,6 +1,12 @@
 venv/
 __pycache__/
 .env
+
+.ipynb_checkpoints/
+
+# Ignore all pickle files EXCEPT model files
 *.pkl
 *.joblib
-.ipynb_checkpoints/
+
+!models/*.pkl
+!models/*.joblib
