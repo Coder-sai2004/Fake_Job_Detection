@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ShieldJob AI — Fake Job Detector",
+  "version": "1.0.0",
+  "description": "Instantly detect fake job postings. Paste a job description and get an AI-powered verdict in seconds.",
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "ShieldJob AI — Fake Job Detector"
+  },
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "https://fake-job-detection-iuxn.onrender.com/*"
+  ]
+}
