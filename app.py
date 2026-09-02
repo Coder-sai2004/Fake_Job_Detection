@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import joblib
 import json
 import os
@@ -14,6 +15,16 @@ from services.company_extractor import extract_company_name
 from services.social_media_analyzer import analyze_social_presence
 
 app = Flask(__name__)
+
+# Allow Chrome extensions and the deployed frontend to call our JSON API.
+# The main HTML route (/) is unaffected — CORS only applies to /api/* paths.
+CORS(app, resources={
+    r"/api/*": {
+        "origins": ["chrome-extension://*", "https://fake-job-detection-iuxn.onrender.com"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 ENABLE_AI_VALIDATION = True
 
@@ -296,6 +307,110 @@ def test_gemini():
         }), 503
 
     return jsonify({"status": "success", "response": response})
+
+
+# ==========================================================
+# Chrome Extension API
+# ==========================================================
+
+@app.route("/api/extension/analyze", methods=["POST"])
+def extension_analyze():
+    """
+    Lightweight JSON endpoint for the ShieldJob AI Chrome Extension.
+
+    Accepts:  { "job_description": "<text>" }
+    Returns:  { verdict, risk_score, confidence, risk_level, reasons, ai_unavailable }
+
+    Reuses ALL existing helper functions — no business logic is duplicated.
+    Website analysis is skipped (defaults to neutral 50) because V1 extension
+    does not collect a company URL.
+    """
+    data = request.get_json(silent=True)
+
+    if not data:
+        return jsonify({"error": "Request body must be JSON.", "code": "INVALID_REQUEST"}), 400
+
+    job_description = data.get("job_description", "").strip()
+
+    # ------------------------------------------------------------------
+    # Basic Validation
+    # ------------------------------------------------------------------
+    valid, error = basic_validation(job_description)
+    if not valid:
+        msg = "Please paste a job description (at least 20 characters)."
+        return jsonify({"error": msg, "code": "INVALID_INPUT"}), 422
+
+    try:
+        # ----------------------------------------------------------------
+        # AI Content Validation (Gemini)
+        # ----------------------------------------------------------------
+        validation_result = validate_content(job_description)
+
+        if not validation_result.get("is_valid", False):
+            content_type = validation_result.get("content_type", "unknown")
+            return jsonify({
+                "error": f"Input does not appear to be a job description ({content_type}).",
+                "code":  "NOT_A_JOB"
+            }), 422
+
+        content_risk_score = validation_result.get("risk_score", 50)
+        ai_score = 100 - content_risk_score
+        ai_unavailable = validation_result.get("ai_unavailable", False)
+
+        # ----------------------------------------------------------------
+        # ML Prediction
+        # ----------------------------------------------------------------
+        ml_result = run_ml_prediction(job_description)
+        ml_score  = ml_result["ml_score"]
+
+        # ML confidence = probability of whichever class was predicted
+        confidence = round(
+            max(ml_result["real_probability"], ml_result["fake_probability"]), 1
+        )
+
+        # ----------------------------------------------------------------
+        # Social Analysis (no website URL in V1 — defaults to neutral 50)
+        # ----------------------------------------------------------------
+        social_analysis = run_social_analysis(job_description)
+        social_score = (
+            social_analysis["overall_score"]
+            if social_analysis else 50
+        )
+        website_score = 50  # neutral — no URL provided in V1
+
+        # ----------------------------------------------------------------
+        # Reason Generation
+        # ----------------------------------------------------------------
+        analysis = generate_job_analysis(job_description, ml_result["prediction"])
+
+        if analysis.get("ai_unavailable"):
+            ai_unavailable = True
+
+        # ----------------------------------------------------------------
+        # Final Score & Verdict
+        # ----------------------------------------------------------------
+        final_result = calculate_final_score(ml_score, ai_score, website_score, social_score)
+        final_score  = final_result["final_score"]
+        verdict      = final_result["final_prediction"]
+
+        # risk_score for the extension: inverted so higher = more dangerous
+        risk_score = round(100 - final_score)
+
+        return jsonify({
+            "verdict":        verdict,
+            "risk_score":     risk_score,
+            "confidence":     confidence,
+            "risk_level":     analysis.get("risk_level", "Medium"),
+            "reasons":        analysis.get("reasons", []),
+            "ai_unavailable": ai_unavailable
+        })
+
+    except Exception as e:
+        print(f"[extension_analyze] Unexpected error: {e}")
+        return jsonify({
+            "error": "An unexpected error occurred during analysis. Please try again.",
+            "code":  "INTERNAL_ERROR"
+        }), 500
 
 
 if __name__ == "__main__":
