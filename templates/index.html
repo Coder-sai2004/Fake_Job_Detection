@@ -17,9 +17,6 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- jsPDF for PDF export -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -207,9 +204,6 @@
                             <div class="verdict-actions">
                                 <button class="action-btn" id="copyBtn" onclick="copyReportSummary()">
                                     <i class="fa-solid fa-copy"></i> <span class="btn-label">Copy Report</span>
-                                </button>
-                                <button class="action-btn" id="pdfBtn" onclick="downloadPDFReport()">
-                                    <i class="fa-solid fa-file-pdf"></i> <span class="btn-label">Download PDF Report</span>
                                 </button>
                             </div>
                         </div>
@@ -704,11 +698,11 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
                 
                 <section class="metrics-page-hero">
                     <div class="hero-badge">
-                        <i class="fa-solid fa-bullseye"></i> Tested Reliability
+                        <i class="fa-solid fa-bullseye"></i> Verified Benchmark
                     </div>
                     <h1 class="page-main-title">How Accurate Is <span class="gradient-text">ShieldJob AI?</span></h1>
                     <p class="page-main-subtitle">
-                        Our model was tested on over <strong>17,800 historical job postings</strong>. Here are the verified benchmark results from an independent test set of 3,576 postings.
+                        Our model was evaluated across <strong>17,880 historical job postings</strong> using rigorous <strong>5-Fold Stratified Cross-Validation (Leak-Free)</strong> with balanced class weighting.
                     </p>
                 </section>
 
@@ -724,9 +718,9 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
                         <div class="intel-header">
                             <div class="intel-title">
                                 <i class="fa-solid fa-table-cells-large"></i>
-                                <h3>Test Results Breakdown</h3>
+                                <h3>5-Fold Out-of-Fold Evaluation Breakdown</h3>
                             </div>
-                            <span class="security-tag">3,576 Test Jobs Evaluated</span>
+                            <span class="security-tag" id="cmSampleTag">17,880 Postings Evaluated</span>
                         </div>
                         
                         <div class="confusion-matrix-wrapper">
@@ -735,23 +729,8 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
                                     <!-- Populated by JS -->
                                 </table>
                             </div>
-                            <div class="cm-legend">
-                                <div class="cm-legend-item">
-                                    <span class="cm-dot cm-tp"></span>
-                                    <div><strong>Scams Caught (162):</strong> Fraudulent jobs accurately flagged with zero false passes.</div>
-                                </div>
-                                <div class="cm-legend-item">
-                                    <span class="cm-dot cm-tn"></span>
-                                    <div><strong>Real Jobs Approved (3,403):</strong> Genuine opportunities correctly identified.</div>
-                                </div>
-                                <div class="cm-legend-item">
-                                    <span class="cm-dot cm-fp"></span>
-                                    <div><strong>False Alarms (0):</strong> Zero real jobs were wrongly marked as scams (100% precision).</div>
-                                </div>
-                                <div class="cm-legend-item">
-                                    <span class="cm-dot cm-fn"></span>
-                                    <div><strong>Edge Cases Missed (11):</strong> Handled by our secondary AI content and reputation layers.</div>
-                                </div>
+                            <div class="cm-legend" id="cmLegend">
+                                <!-- Populated dynamically by JS -->
                             </div>
                         </div>
                     </div>
@@ -819,9 +798,9 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
 
                         <div class="flow-card">
                             <div class="flow-num">6</div>
-                            <div class="flow-icon"><i class="fa-solid fa-file-shield"></i></div>
-                            <h4>6. Downloadable Audit Report</h4>
-                            <p>Get a clean, detailed PDF report you can save or share with friends and family.</p>
+                            <div class="flow-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <h4>6. Actionable Intelligence</h4>
+                            <p>Get clear explainable red flags, instant summary copying, and local scan history tracking.</p>
                         </div>
 
                     </div>
@@ -1100,142 +1079,6 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
         }
 
         // ================================================================
-        // PDF Export using jsPDF
-        // ================================================================
-        function downloadPDFReport() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-
-            const prediction = "{{ prediction or 'N/A' }}";
-            const score      = "{{ final_score or 'N/A' }}";
-            const risk       = "{{ risk_level or 'N/A' }}";
-            const mlScore    = "{{ ml_score or 'N/A' }}";
-            const aiScore    = "{{ ai_score or 'N/A' }}";
-            const webScore   = "{{ website_score or 'N/A' }}";
-            const socScore   = "{{ social_score or 'N/A' }}";
-            const aiUnavail  = {{ 'true' if ai_unavailable else 'false' }};
-
-            const reasons = [
-                {% for reason in reasons %}"{{ reason|replace('"', '\\"') }}"{% if not loop.last %}, {% endif %}{% endfor %}
-            ];
-
-            const now = new Date().toLocaleString();
-
-            doc.setFillColor(99, 102, 241);
-            doc.rect(0, 0, 210, 22, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(16);
-            doc.setFont('helvetica', 'bold');
-            doc.text('ShieldJob AI — Job Safety Audit Report', 14, 14);
-
-            doc.setTextColor(30, 30, 30);
-            doc.setFontSize(9);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(120, 120, 120);
-            doc.text(`Generated: ${now}`, 14, 30);
-
-            let verdictColor = [16, 185, 129];
-            if (prediction === 'Fake Job')       verdictColor = [244, 63, 94];
-            if (prediction === 'Suspicious Job') verdictColor = [245, 158, 11];
-
-            doc.setFillColor(...verdictColor);
-            doc.roundedRect(14, 34, 182, 18, 3, 3, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(13);
-            doc.setFont('helvetica', 'bold');
-            doc.text(`Verdict: ${prediction}`, 22, 46);
-
-            doc.setFontSize(11);
-            doc.text(`Safety Score: ${score}/100`, 120, 46);
-
-            doc.setTextColor(30, 30, 30);
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-            doc.text('Safety Breakdown by Category', 14, 64);
-
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(10);
-            doc.setTextColor(60, 60, 60);
-
-            const scores = [
-                ['Pattern Match Check (Weight: 30%)',   `${mlScore}/100`],
-                ['AI Content Review (Weight: 30%)',     aiUnavail ? `${aiScore}/100 (AI Busy — Estimated)` : `${aiScore}/100`],
-                ['Website Authenticity (Weight: 20%)',  `${webScore}/100`],
-                ['Company Reputation (Weight: 20%)',    `${socScore}/100`],
-            ];
-
-            let y = 72;
-            scores.forEach(([label, val]) => {
-                doc.text(label, 18, y);
-                doc.setFont('helvetica', 'bold');
-                doc.text(val, 150, y);
-                doc.setFont('helvetica', 'normal');
-                y += 8;
-            });
-
-            y += 4;
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(30, 30, 30);
-            doc.text('Risk Assessment', 14, y);
-            y += 8;
-
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(60, 60, 60);
-            doc.text(`Overall Risk Level: ${risk}`, 18, y);
-            y += 8;
-
-            y += 4;
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(30, 30, 30);
-            doc.text('Key Findings & Red Flags', 14, y);
-            y += 8;
-
-            doc.setFontSize(9);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(60, 60, 60);
-            reasons.forEach((reason, i) => {
-                const lines = doc.splitTextToSize(`• ${reason}`, 170);
-                lines.forEach(line => {
-                    if (y > 270) { doc.addPage(); y = 20; }
-                    doc.text(line, 18, y);
-                    y += 6;
-                });
-            });
-
-            y += 4;
-            if (y > 250) { doc.addPage(); y = 20; }
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(30, 30, 30);
-            doc.text('How the Score is Calculated', 14, y);
-            y += 8;
-
-            doc.setFontSize(9);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(60, 60, 60);
-            const methodology = 'The final safety score combines 4 independent checks: Pattern recognition against known postings (30%), AI content inspection (30%), website verification (20%), and public company reputation (20%). A score of 70+ indicates a safe opportunity; 50-69 is suspicious; below 50 is high-risk.';
-            const methodLines = doc.splitTextToSize(methodology, 170);
-            methodLines.forEach(line => {
-                doc.text(line, 18, y);
-                y += 6;
-            });
-
-            const pageCount = doc.internal.getNumberOfPages();
-            for (let i = 1; i <= pageCount; i++) {
-                doc.setPage(i);
-                doc.setFontSize(8);
-                doc.setTextColor(160, 160, 160);
-                doc.text('ShieldJob AI — Confidential Audit Report', 14, 290);
-                doc.text(`Page ${i} of ${pageCount}`, 185, 290, { align: 'right' });
-            }
-
-            doc.save(`ShieldJob_Report_${new Date().toISOString().slice(0,10)}.pdf`);
-        }
-
-        // ================================================================
         // Analysis History (localStorage) with Full Job Description
         // ================================================================
         const HISTORY_KEY = 'shieldjob_history';
@@ -1489,44 +1332,49 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
                     const mi = data.metrics.model_info;
                     const cm = data.metrics.confusion_matrix;
 
+                    const sampleTag = document.getElementById('cmSampleTag');
+                    if (sampleTag) {
+                        sampleTag.textContent = `${ds.total_samples.toLocaleString()} Postings Evaluated (${mi.evaluation_method || '5-Fold CV'})`;
+                    }
+
                     const metricCards = [
                         {
                             key:   'Overall Accuracy',
                             value: m.accuracy,
                             icon:  'fa-bullseye',
-                            desc:  'Tested accuracy score across all real and scam test job postings.'
-                        },
-                        {
-                            key:   'Precision (No False Alarms)',
-                            value: m.precision,
-                            icon:  'fa-crosshairs',
-                            desc:  '100% of jobs flagged as scams were truly fraudulent.'
+                            desc:  `Tested accuracy across all ${ds.total_samples.toLocaleString()} postings (Baseline: ${ds.baseline_accuracy_pct || '95.16'}%).`
                         },
                         {
                             key:   'Scam Catch Rate (Recall)',
                             value: m.recall,
                             icon:  'fa-radar',
-                            desc:  'Catches over 93% of all scam variations and fake job patterns.'
+                            desc:  `Catches ${m.recall}% of all fraudulent job postings and scam variations.`
+                        },
+                        {
+                            key:   'Precision (Reliability)',
+                            value: m.precision,
+                            icon:  'fa-crosshairs',
+                            desc:  `When flagged as a scam, it is accurate ${m.precision}% of the time with minimal false alarms.`
                         },
                         {
                             key:   'Balanced Reliability (F1)',
                             value: m.f1_score,
                             icon:  'fa-scale-balanced',
-                            desc:  'Harmonic balance between precision and catch rate.'
+                            desc:  'Harmonic balance between precision and scam detection rate.'
                         },
                         {
                             key:   'Distinction Power (ROC-AUC)',
                             value: m.roc_auc,
                             icon:  'fa-chart-area',
-                            desc:  'Near-perfect capability to separate real offers from fake postings.'
+                            desc:  'Strong capability to separate genuine offers from scams across thresholds.'
                         },
                     ];
 
                     grid.innerHTML = `
                         <div class="metrics-info-bar">
                             <span><i class="fa-solid fa-robot"></i> Classifier: <strong>${mi.name}</strong></span>
-                            <span><i class="fa-solid fa-database"></i> Training Dataset: <strong>${ds.total_samples.toLocaleString()}</strong> postings</span>
-                            <span><i class="fa-solid fa-vial"></i> Test Holdout: <strong>${ds.test_samples.toLocaleString()}</strong> (20%)</span>
+                            <span><i class="fa-solid fa-database"></i> Dataset: <strong>${ds.total_samples.toLocaleString()}</strong> postings</span>
+                            <span><i class="fa-solid fa-vial"></i> Validation: <strong>${mi.evaluation_method || '5-Fold Stratified CV'}</strong></span>
                             <span><i class="fa-solid fa-percent"></i> Dataset Fraud Rate: <strong>${ds.fraud_rate_pct}%</strong></span>
                         </div>
                         ${metricCards.map(mc => `
@@ -1545,6 +1393,8 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
 
                     const confusionSection = document.getElementById('confusionSection');
                     const confusionMatrix  = document.getElementById('confusionMatrix');
+                    const cmLegend         = document.getElementById('cmLegend');
+
                     if (confusionSection) confusionSection.style.display = 'block';
                     if (confusionMatrix) {
                         confusionMatrix.innerHTML = `
@@ -1567,6 +1417,27 @@ Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
                                     <td class="cm-tp-cell">${cm.true_positives.toLocaleString()}<br><small>Scam Successfully Caught</small></td>
                                 </tr>
                             </tbody>
+                        `;
+                    }
+
+                    if (cmLegend) {
+                        cmLegend.innerHTML = `
+                            <div class="cm-legend-item">
+                                <span class="cm-dot cm-tp"></span>
+                                <div><strong>Scams Caught (${cm.true_positives.toLocaleString()}):</strong> Fraudulent job postings successfully flagged.</div>
+                            </div>
+                            <div class="cm-legend-item">
+                                <span class="cm-dot cm-tn"></span>
+                                <div><strong>Real Jobs Approved (${cm.true_negatives.toLocaleString()}):</strong> Genuine employment opportunities approved.</div>
+                            </div>
+                            <div class="cm-legend-item">
+                                <span class="cm-dot cm-fp"></span>
+                                <div><strong>False Alarms (${cm.false_positives.toLocaleString()}):</strong> Real jobs conservatively flagged (${((cm.false_positives / ds.legitimate_jobs) * 100).toFixed(1)}% of genuine jobs).</div>
+                            </div>
+                            <div class="cm-legend-item">
+                                <span class="cm-dot cm-fn"></span>
+                                <div><strong>Edge Cases Missed (${cm.false_negatives.toLocaleString()}):</strong> Handled by ShieldJob AI's secondary Gemini AI and reputation layers.</div>
+                            </div>
                         `;
                     }
                 })

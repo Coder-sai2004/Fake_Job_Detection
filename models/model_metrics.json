@@ -1,29 +1,32 @@
 {
   "model_info": {
-    "name": "RandomForestClassifier",
+    "name": "RandomForestClassifier (Balanced)",
     "file": "models/job_fraud_model.pkl",
-    "vectorizer": "models/tfidf_vectorizer.pkl"
+    "vectorizer": "models/tfidf_vectorizer.pkl",
+    "evaluation_method": "5-Fold Stratified Cross-Validation (Leak-Free)",
+    "decision_threshold": 0.24
   },
   "dataset_info": {
     "total_samples": 17880,
     "legitimate_jobs": 17014,
     "fraudulent_jobs": 866,
     "fraud_rate_pct": 4.84,
-    "test_size_pct": 20,
-    "test_samples": 3576
+    "baseline_accuracy_pct": 95.16,
+    "evaluation_folds": 5,
+    "test_samples": 17880
   },
   "metrics": {
-    "accuracy": 99.69,
-    "precision": 100.0,
-    "recall": 93.64,
-    "f1_score": 96.72,
-    "roc_auc": 99.96
+    "accuracy": 98.05,
+    "precision": 79.1,
+    "recall": 81.29,
+    "f1_score": 80.18,
+    "roc_auc": 98.49
   },
   "confusion_matrix": {
-    "true_negatives": 3403,
-    "false_positives": 0,
-    "false_negatives": 11,
-    "true_positives": 162
+    "true_negatives": 16828,
+    "false_positives": 186,
+    "false_negatives": 162,
+    "true_positives": 704
   },
-  "computed_at": "2026-08-31T14:50:41.029375"
+  "computed_at": "2026-09-04T20:51:46.484630"
 }

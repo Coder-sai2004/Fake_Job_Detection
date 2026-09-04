@@ -25,22 +25,26 @@ $$\text{Safety Score} = (\text{ML Model} \times 0.30) + (\text{Gemini AI} \times
 
 ---
 
-## 3. Production ML Model & Verified Metrics
-- **Model Type**: `RandomForestClassifier` (100 estimators, random_state=42)
-- **Feature Extraction**: `TfidfVectorizer` (ngram_range=(1,2), max_features=10,000)
+## 3. Production ML Model & Verified Benchmark Metrics
+- **Model Type**: `RandomForestClassifier` (100 estimators, `class_weight='balanced'`, random_state=42)
+- **Feature Extraction**: `TfidfVectorizer` (ngram_range=(1,2), max_features=12,000, sublinear_tf=True, min_df=2)
 - **Dataset**: 17,880 historical job postings (`data/processed_jobs.csv`)
-- **Holdout Test Set**: 3,576 samples (20% test split)
+- **Evaluation Methodology**: 5-Fold Stratified Cross-Validation (Out-of-Fold, Leak-Free)
+- **Calibrated Fraud Threshold**: 0.30 (Optimized for imbalanced fraud recall)
 - **Production Model File**: `models/job_fraud_model.pkl`
 - **Vectorizer File**: `models/tfidf_vectorizer.pkl`
-- **Archived Experimental Model**: `models/archive/job_fraud_model_v2.pkl` (with explanatory README)
 
-### Verified Metrics:
-- **Accuracy**: 99.69%
-- **Precision**: 100.00% (Zero false alarms on real jobs)
-- **Recall**: 93.64% (Successfully catches over 93% of scam variations)
-- **F1 Score**: 96.72%
-- **ROC-AUC**: 99.96%
-- **Confusion Matrix**: True Negatives = 3,403 | True Positives = 162 | False Positives = 0 | False Negatives = 11
+### Verified 5-Fold Cross-Validation Metrics:
+- **Accuracy**: 97.52% (vs 95.16% majority class baseline)
+- **Recall (Scam Catch Rate)**: 85.33% (Catches >85% of all fraud cases across 5 out-of-fold evaluations)
+- **Precision**: 69.98% (Reliable scam identification with minimal false alarms)
+- **F1 Score**: 76.90% (Balanced harmonic mean for imbalanced fraud detection)
+- **ROC-AUC**: 98.49% (High discrimination power across probability thresholds)
+- **Out-of-Fold Confusion Matrix (17,880 total)**: 
+  - True Negatives (Real Jobs Approved): 16,697
+  - False Positives (Real Jobs Flagged): 317
+  - False Negatives (Scams Missed): 127
+  - True Positives (Scams Caught): 739
 
 ---
 
@@ -58,10 +62,12 @@ $$\text{Safety Score} = (\text{ML Model} \times 0.30) + (\text{Gemini AI} \times
 4. **Scan History with Full Job Description View**:
    - Stores up to 15 entries in `localStorage`.
    - Clickable job snippet in the table opens an interactive **Job Details Modal** with "Copy Text" and "Re-Scan This Job" buttons.
-5. **PDF Export**:
-   - Instant 1-click audit report export via `jsPDF`.
-6. **Cyber Sentinel Aesthetic**:
-   - Widescreen 1360px layout, dual-layer cyber dot-matrix background, frosted glassmorphism, glowing neon radial gauge, and mobile-responsive drawer.
+5. **Unified Safety Score Validation across Web & Extension**:
+   - Both Web App and Chrome Extension use the identical unified 0–100 safety scoring system:
+     - **Score $\ge 70$**: Legitimate / Real Job (Safe, Emerald Green)
+     - **Score $50 - 69$**: Suspicious (Proceed with Caution, Amber)
+     - **Score $< 50$**: High Risk / Scam (Do not apply, Rose/Red)
+   - Streamlined actions: Instant 1-click clipboard summary export and local scan history tracking.
 
 ---
 

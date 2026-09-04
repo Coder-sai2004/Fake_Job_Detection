@@ -155,45 +155,47 @@ function updateLoadingStep() {
 // ============================================================
 
 /**
- * Map backend verdict → display properties.
- * Handles all 3 possible verdict strings from the backend.
+ * Map safety score & backend verdict → display properties.
+ * Unified with website: >=70 Real Job (Safe), 50-69 Suspicious, <50 High Risk (Fake).
  */
-function getVerdictMeta(verdict) {
+function getVerdictMeta(score, verdict) {
   const v = (verdict || '').toLowerCase();
 
-  if (v.includes('real')) {
+  if (score >= 70 || v.includes('real')) {
     return {
       cssClass: 'real',
       icon: '✅',
       label: 'LEGITIMATE JOB',
-      sublabel: 'Looks like a real job posting',
-      riskClass: 'low',
-      badgeCls: 'low',
+      sublabel: 'Safe to apply — verified legitimate opportunity',
+      riskClass: 'safe',
+      badgeText: 'Safe / Low Risk',
     };
   }
-  if (v.includes('suspicious')) {
+  if (score >= 50 || v.includes('suspicious')) {
     return {
       cssClass: 'sus',
       icon: '⚠️',
-      label: 'SUSPICIOUS',
-      sublabel: 'Proceed with caution — verify independently',
+      label: 'SUSPICIOUS JOB',
+      sublabel: 'Proceed with caution — verify company independently',
       riskClass: 'medium',
-      badgeCls: 'medium',
+      badgeText: 'Suspicious',
     };
   }
-  // Default: fake
+  // Score < 50 / Fake
   return {
     cssClass: 'fake',
     icon: '🚨',
-    label: 'LIKELY FAKE',
-    sublabel: 'High risk — do not share personal info',
+    label: 'HIGH RISK / SCAM',
+    sublabel: 'Likely a fake job — do not share personal details or fees',
     riskClass: 'high',
-    badgeCls: 'high',
+    badgeText: 'High Risk',
   };
 }
 
 function renderResult(data) {
-  const meta = getVerdictMeta(data.verdict);
+  // Read unified safety score (0–100)
+  const score = Math.min(100, Math.max(0, data.score ?? data.safety_score ?? data.risk_score ?? 0));
+  const meta = getVerdictMeta(score, data.verdict);
 
   // Verdict banner
   els.verdictBanner.className = `verdict-banner ${meta.cssClass}`;
@@ -201,14 +203,14 @@ function renderResult(data) {
   els.verdictLabel.textContent = meta.label;
   els.verdictSublabel.textContent = meta.sublabel;
 
-  // Risk score circle
-  const score = Math.min(100, Math.max(0, data.risk_score ?? 0));
+  // Score circle (displays unified Safety Score 0–100)
   els.verdictScoreNum.textContent = score;
 
-  // Risk bar
-  const riskClass = (data.risk_level || meta.riskClass).toLowerCase();
-  els.riskBarFill.className = `risk-bar-fill ${riskClass}`;
+  // Safety Bar fill & track
+  const barClass = (score >= 70 ? 'safe' : (score >= 50 ? 'medium' : 'high'));
+  els.riskBarFill.className = `risk-bar-fill ${barClass}`;
   els.riskBarTrack.setAttribute('aria-valuenow', score);
+  
   // Animate bar after short delay so CSS transition fires
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -216,10 +218,9 @@ function renderResult(data) {
     });
   });
 
-  // Risk level badge
-  const levelText = data.risk_level || (riskClass.charAt(0).toUpperCase() + riskClass.slice(1));
-  els.riskLevelLabel.textContent = levelText;
-  els.riskLevelLabel.className = `risk-level-badge ${riskClass}`;
+  // Level badge
+  els.riskLevelLabel.textContent = meta.badgeText;
+  els.riskLevelLabel.className = `risk-level-badge ${barClass}`;
 
   // Confidence
   if (data.confidence != null) {

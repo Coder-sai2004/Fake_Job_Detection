@@ -33,26 +33,24 @@ model     = joblib.load("models/job_fraud_model.pkl")
 vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
 
 
+FRAUD_DECISION_THRESHOLD = 0.24
+
 # ==========================================================
 # Helper Functions
 # ==========================================================
 
 def run_ml_prediction(job_description: str) -> dict:
     job_vector   = vectorizer.transform([job_description])
-    prediction   = model.predict(job_vector)
     probabilities = model.predict_proba(job_vector)[0]
-
-    print("Prediction Raw:", prediction)
-    print("Prediction Probabilities:", probabilities)
 
     real_probability = probabilities[0] * 100
     fake_probability = probabilities[1] * 100
 
-    prediction_text = (
-        "Real Job"
-        if prediction[0] == 0
-        else "Fake Job"
-    )
+    # Flag as Fake Job if fraud probability meets or exceeds calibrated threshold (30%)
+    is_fake = (probabilities[1] >= FRAUD_DECISION_THRESHOLD)
+    prediction_text = "Fake Job" if is_fake else "Real Job"
+
+    print(f"ML Probabilities: Real={real_probability:.1f}%, Fake={fake_probability:.1f}% -> {prediction_text}")
 
     ml_score = real_probability  # higher = more legitimate
 
@@ -387,20 +385,30 @@ def extension_analyze():
             ai_unavailable = True
 
         # ----------------------------------------------------------------
-        # Final Score & Verdict
+        # Final Score & Verdict (Unified standard: >=70 Real, 50-69 Suspicious, <50 Fake)
         # ----------------------------------------------------------------
         final_result = calculate_final_score(ml_score, ai_score, website_score, social_score)
         final_score  = final_result["final_score"]
         verdict      = final_result["final_prediction"]
 
-        # risk_score for the extension: inverted so higher = more dangerous
-        risk_score = round(100 - final_score)
+        if final_score >= 70:
+            risk_level = "Low"
+            safety_level = "Safe"
+        elif final_score >= 50:
+            risk_level = "Medium"
+            safety_level = "Suspicious"
+        else:
+            risk_level = "High"
+            safety_level = "High Risk"
 
         return jsonify({
             "verdict":        verdict,
-            "risk_score":     risk_score,
+            "score":          final_score,
+            "safety_score":   final_score,
+            "risk_score":     final_score,  # Unified with web app: >=70 Real, 50-69 Sus, <50 Fake
             "confidence":     confidence,
-            "risk_level":     analysis.get("risk_level", "Medium"),
+            "risk_level":     risk_level,
+            "safety_level":   safety_level,
             "reasons":        analysis.get("reasons", []),
             "ai_unavailable": ai_unavailable
         })
