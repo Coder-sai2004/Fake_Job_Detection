@@ -5,14 +5,10 @@ import json
 import os
 
 from services.gemini_service import ask_gemini, get_friendly_error_message
-from services.content_validator import (
-    validate_content,
-    basic_validation
-)
-from services.reason_generator import generate_job_analysis
-from services.website_analyzer import analyze_website
+from services.content_validator import basic_validation
 from services.company_extractor import extract_company_name
-from services.social_media_analyzer import analyze_social_presence
+from services.website_scraper import extract_website_content
+from services.unified_ai_analyzer import run_unified_ai_analysis
 
 app = Flask(__name__)
 
@@ -20,7 +16,7 @@ app = Flask(__name__)
 # The main HTML route (/) is unaffected — CORS only applies to /api/* paths.
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["chrome-extension://*", "https://fake-job-detection-iuxn.onrender.com"],
+        "origins": ["chrome-extension://*", "http://localhost:*", "http://127.0.0.1:*", "https://fake-job-detection-iuxn.onrender.com"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
@@ -46,7 +42,7 @@ def run_ml_prediction(job_description: str) -> dict:
     real_probability = probabilities[0] * 100
     fake_probability = probabilities[1] * 100
 
-    # Flag as Fake Job if fraud probability meets or exceeds calibrated threshold (30%)
+    # Flag as Fake Job if fraud probability meets or exceeds calibrated threshold (24%)
     is_fake = (probabilities[1] >= FRAUD_DECISION_THRESHOLD)
     prediction_text = "Fake Job" if is_fake else "Real Job"
 
@@ -60,26 +56,6 @@ def run_ml_prediction(job_description: str) -> dict:
         "fake_probability": round(fake_probability, 2),
         "ml_score":         round(ml_score, 2)
     }
-
-
-def run_website_analysis(company_website: str) -> dict | None:
-    if not company_website:
-        return None
-
-    website_result = analyze_website(company_website)
-
-    # Always return analysis object if present (even on "error" status,
-    # website_analyzer now provides a safe fallback analysis)
-    return website_result.get("analysis", None)
-
-
-def run_social_analysis(job_description: str) -> dict | None:
-    company_name = extract_company_name(job_description)
-
-    if not company_name:
-        return None
-
-    return analyze_social_presence(company_name)
 
 
 def calculate_final_score(
@@ -150,78 +126,63 @@ def home():
             prediction_text = f"Invalid Input: {error}"
 
         else:
+            # ----------------------------------------------
+            # 1. ML Classifier (runs locally in <5ms)
+            # ----------------------------------------------
+            ml_result       = run_ml_prediction(job_description)
+            prediction_text = ml_result["prediction"]
+            ml_score        = ml_result["ml_score"]
 
             # ----------------------------------------------
-            # AI Validation (Gemini content check)
+            # 2. Extract Company & Website Scraper (if URL)
             # ----------------------------------------------
-            validation_result = {"is_valid": True}
+            company_name = extract_company_name(job_description)
+            web_title = None
+            web_content = None
 
-            if ENABLE_AI_VALIDATION:
-                validation_result = validate_content(job_description)
+            if company_website:
+                scrape_res = extract_website_content(company_website)
+                if scrape_res.get("status") == "success":
+                    web_title = scrape_res.get("title")
+                    web_content = scrape_res.get("content")
+                else:
+                    web_title = "Failed to scrape"
+                    web_content = scrape_res.get("message", "Scraping failed")
 
-                content_risk_score = validation_result.get("risk_score", 50)
-                ai_score           = 100 - content_risk_score
+            # ----------------------------------------------
+            # 3. Unified Multi-Layer AI Audit (Single API Call)
+            # ----------------------------------------------
+            ai_audit = run_unified_ai_analysis(
+                job_description=job_description,
+                ml_prediction=prediction_text,
+                ml_score=ml_score,
+                company_name=company_name,
+                website_title=web_title,
+                website_content=web_content
+            )
 
-                # Propagate AI unavailability flag
-                if validation_result.get("ai_unavailable"):
-                    ai_unavailable   = True
-                    ai_error_message = validation_result.get(
-                        "ai_error_msg",
-                        "AI verification is temporarily unavailable."
-                    )
-
-                print("Validation Result:", validation_result)
-                print(f"Content Risk Score: {content_risk_score}")
-
-            if not validation_result.get("is_valid", False):
-                prediction_text = (
-                    f"Invalid Input: {validation_result.get('content_type', 'unknown')}"
-                )
-
+            if not ai_audit.get("is_valid", True):
+                prediction_text = f"Invalid Input: {ai_audit.get('content_type', 'unknown')}"
             else:
+                ai_score         = ai_audit.get("ai_score", 50)
+                ai_unavailable   = ai_audit.get("ai_unavailable", False)
+                ai_error_message = ai_audit.get("ai_error_msg", "")
+                
+                analysis["risk_score"] = ai_audit.get("ai_risk_score", 50)
+                analysis["risk_level"] = ai_audit.get("risk_level", "Medium")
+                analysis["reasons"]    = ai_audit.get("reasons", [])
+
+                social_analysis  = ai_audit.get("social_analysis")
+                social_score     = social_analysis["overall_score"] if social_analysis else 50
+
+                website_analysis = ai_audit.get("website_analysis")
+                if company_website:
+                    website_score = website_analysis["job_legitimacy_score"] if website_analysis else 50
+                else:
+                    website_score = 50
 
                 # ------------------------------------------
-                # ML Prediction (always runs)
-                # ------------------------------------------
-                ml_result       = run_ml_prediction(job_description)
-                prediction_text = ml_result["prediction"]
-                ml_score        = ml_result["ml_score"]
-
-                # ------------------------------------------
-                # Website Analysis
-                # ------------------------------------------
-                website_analysis = run_website_analysis(company_website)
-                website_score    = (
-                    website_analysis.get("job_legitimacy_score", 50)
-                    if website_analysis
-                    else 50
-                )
-
-                # ------------------------------------------
-                # Social Media Analysis (real search)
-                # ------------------------------------------
-                social_analysis = run_social_analysis(job_description)
-                social_score    = (
-                    social_analysis["overall_score"]
-                    if social_analysis
-                    else 50
-                )
-
-                # ------------------------------------------
-                # Reason Generation
-                # ------------------------------------------
-                analysis = generate_job_analysis(job_description, prediction_text)
-
-                # Merge AI unavailability from reason generator
-                if analysis.get("ai_unavailable"):
-                    ai_unavailable = True
-                    ai_error_message = analysis.get(
-                        "ai_error_msg",
-                        "AI verification is temporarily unavailable."
-                    )
-
-                # ------------------------------------------
-                # Final Score Calculation
+                # 4. Final Weighted Score Calculation
                 # ------------------------------------------
                 final_result = calculate_final_score(
                     ml_score,
@@ -340,52 +301,45 @@ def extension_analyze():
 
     try:
         # ----------------------------------------------------------------
-        # AI Content Validation (Gemini)
-        # ----------------------------------------------------------------
-        validation_result = validate_content(job_description)
-
-        if not validation_result.get("is_valid", False):
-            content_type = validation_result.get("content_type", "unknown")
-            return jsonify({
-                "error": f"Input does not appear to be a job description ({content_type}).",
-                "code":  "NOT_A_JOB"
-            }), 422
-
-        content_risk_score = validation_result.get("risk_score", 50)
-        ai_score = 100 - content_risk_score
-        ai_unavailable = validation_result.get("ai_unavailable", False)
-
-        # ----------------------------------------------------------------
-        # ML Prediction
+        # 1. ML Classifier (<5ms)
         # ----------------------------------------------------------------
         ml_result = run_ml_prediction(job_description)
         ml_score  = ml_result["ml_score"]
-
-        # ML confidence = probability of whichever class was predicted
         confidence = round(
             max(ml_result["real_probability"], ml_result["fake_probability"]), 1
         )
 
         # ----------------------------------------------------------------
-        # Social Analysis (no website URL in V1 — defaults to neutral 50)
+        # 2. Extract Company Name
         # ----------------------------------------------------------------
-        social_analysis = run_social_analysis(job_description)
-        social_score = (
-            social_analysis["overall_score"]
-            if social_analysis else 50
+        company_name = extract_company_name(job_description)
+
+        # ----------------------------------------------------------------
+        # 3. Unified Multi-Layer AI Audit (Single API Call)
+        # ----------------------------------------------------------------
+        ai_audit = run_unified_ai_analysis(
+            job_description=job_description,
+            ml_prediction=ml_result["prediction"],
+            ml_score=ml_score,
+            company_name=company_name
         )
-        website_score = 50  # neutral — no URL provided in V1
+
+        if not ai_audit.get("is_valid", True):
+            content_type = ai_audit.get("content_type", "unknown")
+            return jsonify({
+                "error": f"Input does not appear to be a job description ({content_type}).",
+                "code":  "NOT_A_JOB"
+            }), 422
+
+        ai_score       = ai_audit.get("ai_score", 50)
+        ai_unavailable = ai_audit.get("ai_unavailable", False)
+
+        social_analysis = ai_audit.get("social_analysis")
+        social_score    = social_analysis["overall_score"] if social_analysis else 50
+        website_score   = 50  # neutral — no URL provided in V1 extension
 
         # ----------------------------------------------------------------
-        # Reason Generation
-        # ----------------------------------------------------------------
-        analysis = generate_job_analysis(job_description, ml_result["prediction"])
-
-        if analysis.get("ai_unavailable"):
-            ai_unavailable = True
-
-        # ----------------------------------------------------------------
-        # Final Score & Verdict (Unified standard: >=70 Real, 50-69 Suspicious, <50 Fake)
+        # 4. Final Score & Verdict (Unified standard: >=70 Real, 50-69 Suspicious, <50 Fake)
         # ----------------------------------------------------------------
         final_result = calculate_final_score(ml_score, ai_score, website_score, social_score)
         final_score  = final_result["final_score"]
@@ -409,7 +363,7 @@ def extension_analyze():
             "confidence":     confidence,
             "risk_level":     risk_level,
             "safety_level":   safety_level,
-            "reasons":        analysis.get("reasons", []),
+            "reasons":        ai_audit.get("reasons", []),
             "ai_unavailable": ai_unavailable
         })
 

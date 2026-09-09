@@ -10,19 +10,16 @@
 
 'use strict';
 
-// ============================================================
-// Constants
-// ============================================================
-
-const API_URL = 'https://fake-job-detection-iuxn.onrender.com/api/extension/analyze';
+const PRIMARY_LOCAL_API = 'http://127.0.0.1:5000/api/extension/analyze';
+const CLOUD_API_URL = 'https://fake-job-detection-iuxn.onrender.com/api/extension/analyze';
 const WEBSITE_URL = 'https://fake-job-detection-iuxn.onrender.com/';
-const REQUEST_TIMEOUT_MS = 60_000; // 60 s — Render cold-starts can be slow
+const REQUEST_TIMEOUT_MS = 45_000; // 45s max
 
 const LOADING_STEPS = [
   'Checking job description…',
   'Running ML classifier…',
-  'Validating with Gemini AI…',
-  'Calculating risk score…',
+  'Executing Multi-Layer AI Audit…',
+  'Calculating risk & legitimacy…',
 ];
 
 // ============================================================
@@ -289,11 +286,25 @@ function renderError(code, customMessage) {
 // ============================================================
 
 async function analyzeJob(jobDescription) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let endpoint = PRIMARY_LOCAL_API;
 
   try {
-    const response = await fetch(API_URL, {
+    // Quick test if local backend is available (timeout 1.5s)
+    const localProbe = new AbortController();
+    const probeTimeout = setTimeout(() => localProbe.abort(), 1500);
+    try {
+      await fetch('http://127.0.0.1:5000/api/model-metrics', { method: 'GET', signal: localProbe.signal });
+      clearTimeout(probeTimeout);
+      endpoint = PRIMARY_LOCAL_API;
+    } catch {
+      clearTimeout(probeTimeout);
+      endpoint = CLOUD_API_URL;
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ job_description: jobDescription }),
@@ -305,7 +316,6 @@ async function analyzeJob(jobDescription) {
     const data = await response.json();
 
     if (!response.ok) {
-      // Backend returned a structured error
       renderError(data.code, data.error ? `⚠️ ${data.error}` : null);
       return;
     }
@@ -313,8 +323,6 @@ async function analyzeJob(jobDescription) {
     renderResult(data);
 
   } catch (err) {
-    clearTimeout(timeoutId);
-
     if (err.name === 'AbortError') {
       renderError('TIMEOUT');
     } else {

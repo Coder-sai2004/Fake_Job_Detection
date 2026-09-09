@@ -1,0 +1,258 @@
+
+======================================== PAGE 1 ========================================
+                                                                            
+1 
+ 
+    INTERNSHIP REPORT 
+ 
+Generative AI Using GCP  
+ 
+Submitted in partial fulfillment of the requirements for the Summer Internship of 
+     Bachelor of Technology (B.Tech.) 
+                                                                                   Submitted by 
+                                      Shaik Asif Thanveer(23A91A0558-CSE) 
+ 
+Under the Guidance of  
+ 
+Dr.Jalaiah Saikam, M.Tech, Ph.D 
+ Assistant Professor 
+ 
+         Internship Duration: 
+ 
+From: 07-05-2026 T0 30-06-2026 
+ 
+in 
+  
+Department of  Computer Science and Engineering 
+ 
+ 
+ 
+ADITYA UNIVERSITY 
+(Formerly Aditya Engineering College (A)) 
+Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India 
+2026-27 
+ 
+
+
+--- Images on page 1 ---
+Image name: Image11.jpg
+
+======================================== PAGE 2 ========================================
+                                                                            
+2 
+ 
+ 
+ 
+ 
+ 
+Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India 
+ 
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING 
+ 
+ 
+ 
+CERTIFICATE 
+ 
+This is to certify that the project entitled “Portify.ai Studio: Generative AI Web Project”is being submitted 
+by Shaik Asif Thanveer Roll No: 23A91A0558 , in partial fulfilment of the requirements for the Internship 
+in L4G Solutions Pvt.ltd .The work carried out by the students is genuine and fulfills the requirements 
+prescribed by the institution. 
+ 
+ 
+ 
+     Project Guide                       
+                 
+     Dr.Jalaiah Saikam, M.Tech, Ph.D         
+     Assistant Professor         
+ 
+     Date: 
+     Place: Surampalem 
+ 
+
+
+--- Images on page 2 ---
+Image name: Image19.jpg
+
+======================================== PAGE 3 ========================================
+                                                                            
+3 
+ 
+ 
+Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India 
+ 
+DECLARATION 
+     I hereby declare that the internship report entitled "Portify.ai Studio: Generative AI Web Project" submitted 
+to is a record of original work carried out by me  during the summer Internship period under the guidance 
+of. I further declare that this work has not been submitted elsewhere for any degree or diploma. 
+ 
+                                                                                            Student Signature 
+                                                                                                                        Name: Shaik Asif Thanveer 
+                                                                                                                        Roll Number: 23A91A0558 
+Date: 
+  
+
+
+--- Images on page 3 ---
+Image name: Image22.jpg
+
+======================================== PAGE 4 ========================================
+                                                                            
+4 
+ 
+ACKNOWLEDGEMENT 
+It is with immense pleasure that we would like to express my indebted gratitude to my project 
+guide Dr. Jalaiah saikam , Department of Computer Science And Engineering, who has guided us a lot 
+and encouraged in every step of the project work. His valuable moral support and guidance throughout 
+the project helped me to a greater extent. 
+We are grateful to  Dr.A.Phani Sridhar HOD, for inspiring me all the way and for arranging all the 
+facilities and resources needed for our project. 
+We wish to thank our Dr. M.V. Rajesh, Associate Dean (School of Computing), Dr. A Ramesh, Pro 
+ViceChancellor (Engineering & Sciences), Dr. S. Rama Sree, Pro Vice -Chancellor (Academics) 
+and Dr. G. Suresh, Registrar, for their encouragement and support during the course of my project. 
+We would like to extend my sincere thanks to Dr. M. B. Srinivas, Vice - Chancellor, Dr. M.  
+Sreenivasa Reddy , Deputy Pro -Chancellor and Management, Aditya University  for their 
+unconditional support in providing me with the best infrastructural facilities and state -of-the-art 
+laboratories during my project. 
+Not to forget, Non-Teaching Staff and our Friends who have directly or indirectly supported me in 
+completing this project on time   
+ 
+                   Student Name: Shaik Asif Thanveer 
+  
+                   Regd. No: 23A91A0558
+
+--- Images on page 4 ---
+
+======================================== PAGE 5 ========================================
+                                                                            
+5 
+ 
+Learning Objectives/Internship Objectives 
+• Internships are generally thought of to be reserved for college students looking to gain experience in  
+a particular field. However, a wide array of people can benefit from Training Internships in order to 
+receive real world experience and develop their skills. 
+• An objective for this position should emphasize the skills you already possess in the area and your 
+interest in learning more 
+• Internships are utilized in a number of different career fields, including architecture, engineering, 
+healthcare, economics, advertising and many more. 
+• Some internships are used to allow individuals to  perform scientific research while others are 
+specifically designed to allow people to gain first-hand experience working. 
+• Utilizing internships is a great way to build your resume and develop skills that can be emphasized in 
+your resume for future jobs. When you are applying for a Training Internship, make sure to highlight 
+any special skills or talents that can make you stand apart from the rest of the applicants so that you have 
+an improved chance of landing the position. 
+
+--- Images on page 5 ---
+
+======================================== PAGE 6 ========================================
+                                                                            
+6 
+ 
+ 
+
+
+--- Images on page 6 ---
+Image name: Image36.jpg
+
+======================================== PAGE 7 ========================================
+                                                                            
+7 
+  
+
+
+--- Images on page 7 ---
+Image name: Image39.jpg
+
+======================================== PAGE 8 ========================================
+                                                                            
+8 
+ 
+ 
+
+
+--- Images on page 8 ---
+Image name: Image42.jpg
+
+======================================== PAGE 9 ========================================
+                                                                            
+9 
+ 
+ 
+
+
+--- Images on page 9 ---
+Image name: Image45.jpg
+
+======================================== PAGE 10 ========================================
+                                                                            
+10 
+ 
+ 
+ 
+ 
+
+
+--- Images on page 10 ---
+Image name: Image48.jpg
+
+======================================== PAGE 11 ========================================
+                                                                            
+11 
+ 
+ 
+
+
+--- Images on page 11 ---
+Image name: Image51.jpg
+
+======================================== PAGE 12 ========================================
+                                                                            
+12 
+ 
+INTERNSHIP COMPLETION CERTIFICATE 
+ 
+  
+
+
+--- Images on page 12 ---
+Image name: Image54.jpg
+
+======================================== PAGE 13 ========================================
+                                                                            
+13 
+ 
+ 
+ Table of Contents  
+S. No. Content Page No. 
+1 Abstract 14 
+2 SDG Mapping 15 
+3 Introduction 16 
+4        Objectives 17 
+5 Methodology 18-19 
+6 Implementation 20-23 
+7 Results/Outputs 24-27 
+8 Key Learnings 28 
+9 Conclusion 29 
+10 Outcomes 30 
+11 References 31 
+
+--- Images on page 13 ---
+
+======================================== PAGE 14 ========================================
+                                                                            
+14 
+ 
+1. ABSTRACT 
+ 
+The project “Portify  – AI-Powered Resume-to-3D Portfolio Generator” applies Generative AI to automate the 
+creation of modern personal portfolios from resumes. The problem addressed is that converting resume 
+information into a well-structured, responsive portfolio normally req uires manual web-development and design 
+effort. The proposed system accepts PDF, DOCX, TXT, or pasted resume text, extracts the content, and uses 
+Google Gemini to transform it into structured professional information such as personal details, skills, experience, 
+education, projects, certifications, and achievements. A React and TypeScript interface then renders the data 
+using responsive layouts and interactive 3D visual effects. The system also supports portfolio customization, 
+publishing, and contact commu nication. The result is a functional AI -assisted workflow that reduces portfolio 
+creation effort while preserving resume-specific content. 
+Keywords: Generative AI, Google Gemini, GCP, React, TypeScript, Three.js, Resume Parsing, 3D Portfolio. 
+ 
+
+--- Images on page 14 ---

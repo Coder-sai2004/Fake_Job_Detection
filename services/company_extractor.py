@@ -56,9 +56,9 @@ def _extract_via_field_patterns(text: str) -> str | None:
 # -----------------------------------------------------------------------
 
 _CONTEXT_PATTERNS = [
-    r"(?:join|joining|at|with|for)\s+([A-Z][A-Za-z0-9\s&\.\-]{2,40}?)(?:\s+(?:is|as|are|for|to|and|in|\.|,))",
-    r"([A-Z][A-Za-z0-9\s&\.\-]{2,40}?)\s+(?:is|are)\s+(?:hiring|looking|seeking|recruiting)",
-    r"(?:work(?:ing)?\s+at|employed\s+at)\s+([A-Z][A-Za-z0-9\s&\.\-]{2,40}?)(?:\s|\.|,)",
+    r"(?:join|joining|at|with|for)\s+([A-Z][A-Za-z0-9\s&\-]{2,40}?)(?:\s+(?:is|as|are|for|to|and|in|\.|,)|$|\n)",
+    r"([A-Z][A-Za-z0-9\s&\-]{2,40}?)\s+(?:is|are)\s+(?:hiring|looking|seeking|recruiting)",
+    r"(?:work(?:ing)?\s+at|employed\s+at)\s+([A-Z][A-Za-z0-9\s&\-]{2,40}?)(?:\s|\.|,|$|\n)",
 ]
 
 _VALID_COMPANY_WORDS = {
@@ -84,53 +84,11 @@ def _extract_via_context(text: str) -> str | None:
     for pattern in _CONTEXT_PATTERNS:
         for match in re.finditer(pattern, text):
             candidate = match.group(1).strip()
+            candidate = candidate.split("\n")[0].split(".")[0].strip()
             candidate = re.sub(r"\s+", " ", candidate)
             if _looks_like_company(candidate):
                 return candidate
     return None
-
-
-# -----------------------------------------------------------------------
-# Layer 3 — Gemini AI fallback
-# -----------------------------------------------------------------------
-
-def _extract_via_gemini(text: str) -> str | None:
-    # Limit text sent to Gemini to avoid large prompts
-    excerpt = text[:1500]
-
-    prompt = f"""
-Extract the hiring company name from this job posting.
-
-Rules:
-- Return ONLY the company name as plain text.
-- No explanation, no punctuation, no JSON, no markdown.
-- If no company name can be identified, return exactly: UNKNOWN
-
-Job Posting:
-{excerpt}
-"""
-    try:
-        response = ask_gemini(prompt)
-
-        # Handle error dict from updated gemini_service
-        if isinstance(response, dict) and response.get("error"):
-            return None
-
-        if not response or response.startswith("Error:"):
-            return None
-
-        name = response.strip().strip('"').strip("'")
-        if name.upper() == "UNKNOWN" or not name:
-            return None
-
-        # Quick sanity check
-        if len(name) > 100 or "\n" in name:
-            return None
-
-        return name
-
-    except Exception:
-        return None
 
 
 # -----------------------------------------------------------------------
@@ -141,7 +99,7 @@ def extract_company_name(job_description: str) -> str | None:
     """
     Extract the company name from a job description.
     Returns the company name string or None.
-    Kept simple for backward compatibility with existing callers.
+    Fast deterministic extraction without redundant AI roundtrips.
     """
     result = extract_company_name_with_metadata(job_description)
     return result["company"]
@@ -154,26 +112,21 @@ def extract_company_name_with_metadata(job_description: str) -> dict:
     Returns:
     {
         "company":    str | None,
-        "source":     "regex_field" | "regex_context" | "ai_fallback" | "not_found",
+        "source":     "regex_field" | "regex_context" | "not_found",
         "confidence": "high" | "medium" | "low"
     }
     """
     if not job_description:
         return {"company": None, "source": "not_found", "confidence": "low"}
 
-    # Layer 1
+    # Layer 1 - Explicit field
     company = _extract_via_field_patterns(job_description)
     if company:
         return {"company": company, "source": "regex_field", "confidence": "high"}
 
-    # Layer 2
+    # Layer 2 - Context
     company = _extract_via_context(job_description)
     if company:
         return {"company": company, "source": "regex_context", "confidence": "medium"}
-
-    # Layer 3
-    company = _extract_via_gemini(job_description)
-    if company:
-        return {"company": company, "source": "ai_fallback", "confidence": "low"}
 
     return {"company": None, "source": "not_found", "confidence": "low"}

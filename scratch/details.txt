@@ -1,0 +1,425 @@
+========================================
+           ALL SLIDES CONTENT           
+========================================
+
+
+==================== SLIDE 1 ====================
+  INTERNSHIP PROJECT REPORT ON
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  An AI/ML-Powered Web Application & Chrome Extension for Job Scam Detection
+  Presented By:
+  Tanuku Ram Sai  (PIN: 24A95A0503)
+  Department of Computer Science & EngineeringAditya University, Surampalem
+
+==================== SLIDE 2 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  2
+  ABSTRACT
+  •  Context: With hiring moving online (LinkedIn, Indeed, Naukri), fake job postings have risen rapidly, causing financial loss and identity theft for job seekers.
+  •  The Challenge: Scammers create convincing job posts with fake company domains and unrealistic salary promises that manual checks easily miss.
+  •  Proposed System: ShieldJob AI is a multi-modal verification platform that evaluates job posts through 4 safety layers: Machine Learning (Random Forest), Google Gemini AI, Website Verification, and Social Footprint analysis.
+  •  Accessible Access: Delivered through a modern Flask web application and a 1-click Google Chrome Extension (Manifest V3) for instant in-browser checks.
+  •  Key Result: Achieved 98.05% accuracy across 17,880 benchmark job postings, providing instant risk scores (0–100%) and clear safety badges.
+
+==================== SLIDE 3 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  3
+  INTRODUCTION
+  •  Digital Hiring Era: Online job portals have made finding employment faster, but have also opened doors for recruitment scams and cyber fraud.
+  •  Modern Scam Tactics: Fraudsters post fake openings, conduct sham interviews on Telegram/WhatsApp, and demand upfront fees for 'training' or 'equipment'.
+  •  Why Simple Checks Fail: Traditional keyword filters miss sophisticated scam wording, while manual checks cannot easily verify domain age and official company records.
+  •  The Solution: ShieldJob AI introduces an intelligent, automated safety check that cross-verifies job descriptions, company websites, and social presence in seconds.
+  •  Goal: Empowering students and job seekers with a simple 1-click browser tool to verify job offers before sharing personal data or money.
+
+==================== SLIDE 4 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  4
+  PROBLEM STATEMENT
+  •  Growing Scam Volume: Thousands of fresh graduates fall victim each year to fake job offers on popular portals like LinkedIn, Indeed, and Naukri.
+  •  Upfront Fee Demands: Scammers extort money through fake registration charges, onboarding kit fees, or security deposits.
+  •  Company Impersonation: Fraudulent actors copy reputable company names and build look-alike websites (typosquatting) to deceive applicants.
+  •  Single-Layer Limitations: Checking text alone misses fake company websites; checking websites alone misses fraudulent job descriptions.
+  •  Need for Real-Time Defense: Job seekers need an easy, instant in-browser tool that provides clear **Safe**, **Suspicious**, or **Fake** verdicts on the spot.
+
+==================== SLIDE 5 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  5
+  PROJECT OVERVIEW
+  •  ShieldJob AI Platform: An end-to-end intelligent detection ecosystem designed to protect job seekers from recruitment scams in real time.
+  •  The 4 Safety Layers: 1. Pattern Matcher (30%): ML model trained on 17,880 job records.
+2. AI Content Inspector (30%): Google Gemini AI spotting tone & fee anomalies.
+3. Website Authenticity (20%): Verifying company domain security & official existence.
+4. Company Reputation (20%): Checking LinkedIn presence & public scam reports.
+  •  Dual User Interfaces: A responsive Web Application for in-depth scans + a 1-Click Chrome Browser Extension for instant checks while browsing.
+  •  Unified Safety Score: Combines all 4 layers into a single 0–100 score categorized as Legitimate (Safe), Suspicious, or Likely Fake.
+  •  Explainable Feedback: Highlights exact red flags (e.g., suspicious payment demands, unverified domains, missing company history).
+
+==================== SLIDE 6 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  6
+  METHODOLOGY
+  •  Step 1: Data Preparation: Processed 17,880 job postings from the benchmark EMSCAD dataset using TF-IDF NLP feature extraction.
+  •  Step 2: ML Model Training: Trained a balanced Random Forest Classifier to statistically identify scam language and fraudulent requirements.
+  •  Step 3: GenAI Content Audit: Engineered Google Gemini AI prompts to evaluate salary realism, recruiter professionalism, and hidden fee requests.
+  •  Step 4: Live Web & Social Verification: Automated search queries via SerpAPI to cross-check company website credibility and LinkedIn presence.
+  •  Step 5: Weighted Score Aggregation: Final Safety Score = (30% × ML) + (30% × Gemini AI) + (20% × Website) + (20% × Social).
+
+==================== SLIDE 7 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  7
+  SYSTEM ARCHITECTURE
+  USER INPUT: Job Posting & Description
+  (Job Title, Company Name, Requirements, Contact Details)
+  ML Model (30%)
+  • Random Forest Classifier
+  • TF-IDF text analysis
+  • Historical scam patterns
+  Gemini AI (30%)
+  • GenAI Content Auditor
+  • Scam tone detection
+  • Unrealistic salary checks
+  Website Check (20%)
+  • Domain credibility
+  • SSL & official site match
+  • Typosquatting detection
+  Social Check (20%)
+  • LinkedIn presence
+  • Public employee footprint
+  • Scam alert databases
+  Score Aggregation Engine: Weighted 4-Layer Risk Calculation (0–100%)
+  FINAL PREDICTION:  ✅ Legitimate (Safe)   |   ⚠️ Suspicious   |   🚨 Likely Fake
+
+==================== SLIDE 8 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  8
+  SYSTEM STRUCTURE & WORKFLOW
+  1. Browse Job Portal
+  • LinkedIn, Naukri, Indeed, or Unstop
+  • User views job offer
+  • Copies text or opens popup
+  2. Chrome Extension
+  • 1-Click ShieldJob AI popup
+  • Pastes description into popup
+  • Clicks 'Analyze Job'
+  3. Flask Cloud API
+  • Sends request to Render backend
+  • Secure payload processing
+  • Zero API keys on client
+  4. Multi-Layer Scan
+  • Runs ML + Gemini AI in parallel
+  • Checks domain & LinkedIn
+  • Computes risk score
+  5. Instant Verdict
+  • Color-coded safety badge
+  • Displays Risk Score %
+  • Lists detected red flags
+
+==================== SLIDE 9 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  9
+  IMPLEMENTATION & TECH STACK
+  •  Backend Framework: Python 3.11 with Flask REST API, Gunicorn WSGI server, and CORS handling.
+  •  Machine Learning: Scikit-learn, Random Forest Classifier, TF-IDF Vectorizer, and Joblib for model serialization.
+  •  Generative AI: Google Gemini API (`google-generativeai` SDK) for qualitative content and scam indicator auditing.
+  •  Live Web Search & Scraping: SerpAPI & Google Custom Search for verifying official company domains and social footprints.
+  •  Frontend & Extension: Modern HTML5, Vanilla CSS3 (Custom Glassmorphism UI), JavaScript ES6, and Chrome Extension Manifest V3.
+  •  Cloud Deployment: Hosted on Render with automated environment security and continuous deployment.
+
+==================== SLIDE 10 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  10
+  RESULTS: MODEL ACCURACY & PROOF
+  • Overall Accuracy (98.05%): Tested across all 17,880 benchmark job postings.
+  • Scam Catch Rate (81.29%): Successfully detects over 81% of fraudulent job postings.
+  • Precision (79.10%): High reliability when flagging scams with minimal false alarms.
+  • ROC-AUC Distinction (98.49%): Strong separation power between genuine offers and scams.
+  • 5-Fold Cross-Validation: Leak-free validation: 16,828 real jobs approved, 704 scams caught, only 186 false alarms.
+
+==================== SLIDE 11 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  11
+  RESULTS: LIVE APP & EXTENSION IN ACTION
+  Chrome Extension Live Scan (Unstop Portal):Verified Cisco job offer as LEGITIMATE (Score: 75.8/100, ML Confidence: 91%)
+  Scan History & Dashboard Tracking:Real-time log of verified jobs with color-coded safety badges (Real / Suspicious / Fake)
+
+==================== SLIDE 12 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  12
+  CHALLENGES & LEARNING OUTCOMES
+  •  Class Imbalance: Handled the low ratio of scam jobs (4.84%) using balanced class weights, stratified sampling, and ensemble techniques.
+  •  Unstructured Text Formats: Standardized varied job postings and missing metadata fields using smart regex cleaning and NLP pipelines.
+  •  Cloud Cold-Starts & Latency: Optimized parallel API calls and implemented fallback scoring to maintain smooth response times on Render.
+  •  Key Learning Outcomes: Gained practical mastery in training & evaluating ML models, integrating Generative AI (LLMs), building Chrome Extensions (Manifest V3), and deploying full-stack web applications.
+
+==================== SLIDE 13 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  13
+  CONCLUSION & FUTURE SCOPE
+  •  Project Summary: ShieldJob AI provides a fast, reliable, and multi-layered defense system that protects job seekers from online employment fraud.
+  •  Usability & Impact: Combining a web dashboard with an in-browser Chrome Extension makes advanced AI protection accessible to any student with one click.
+  •  Future Scope: Auto-Detection: Extracting job details directly from web pages (DOM scraping) for automatic safety badge overlays without copy-pasting.
+  •  Future Scope: Multilingual Support: Extending NLP models to detect recruitment scams in regional and international languages.
+  •  Future Scope: Interview Scam Defense: Adding AI analysis to verify video interview links and detect deepfake recruiter calls.
+
+==================== SLIDE 14 ====================
+  ShieldJob AI: Multi-Modal Fake Job Detection System
+  14
+  REFERENCES
+  •  Scikit-learn Documentation: Pedregosa et al., 'Scikit-learn: Machine Learning in Python', Random Forest Classifier & TF-IDF Vectorization (scikit-learn.org).
+  •  Google Generative AI: Google DeepMind, 'Gemini API & Generative AI Python SDK Documentation' (ai.google.dev).
+  •  Chrome Extension Architecture: Google Chrome Developers, 'Manifest V3 Architecture & Extension Security' (developer.chrome.com).
+  •  Recruitment Scam Research: Federal Trade Commission (FTC), 'Job Scams and Identity Theft Consumer Threat Reports'.
+  •  Benchmark Dataset: Employment Scam Aegean Dataset (EMSCAD) / Kaggle Fake Job Postings Dataset Repository.
+
+==================== SLIDE 15 ====================
+  THANK YOU
+  Any Questions & Feedback?
+  Tanuku Ram Sai  (PIN: 24A95A0503)Department of Computer Science & EngineeringAditya University, Surampalem
+  15
+
+
+========================================
+           DOCX PARAGRAPHS             
+========================================
+
+P0 [Normal]: A SUMMER INTERNSHIP REPORT
+ON
+P1 [Normal]: ShieldJob AI – Fake Job Detection System
+P2 [Normal]: Submitted in partial fulfillment of the requirements for the award of the degree of
+P3 [Normal]: BACHELOR OF TECHNOLOGY
+IN
+COMPUTER SCIENCE & ENGINEERING
+P4 [Normal]: Submitted by
+P5 [Normal]: TANUKU RAM SAI
+(Regd. No: 24A95A0503)
+P6 [Normal]: Carried Out At
+P7 [Normal]: VEDXLENCE INNOVATIONS PVT. LTD., HYDERABAD
+(AICTE Certified Internship & Upskilling Program | May 6, 2026 – July 5, 2026)
+P8 [Normal]: DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING
+ADITYA UNIVERSITY
+(Formerly Aditya Engineering College (A))
+Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India
+2025–2026
+P10 [Normal]: DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING
+ADITYA UNIVERSITY
+Surampalem, Andhra Pradesh, India
+P11 [Normal]: CERTIFICATE
+P12 [Normal]: This is to certify that the internship report entitled "ShieldJob AI – Fake Job Detection System" is being submitted by Tanuku Ram Sai (Regd. No: 24A95A0503) in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology in Computer Science & Engineering at Aditya University during the academic year 2025–2026. The work was carried out as part of the AICTE Certified Summer Internship Program at VedXlence Innovations Pvt. Ltd., Hyderabad, between May 6, 2026, and July 5, 2026. The work carried out by the student is genuine, original, and fulfills the requirements prescribed by the institution.
+P14 [Normal]: DECLARATION
+P15 [Normal]: I hereby declare that the internship report entitled "ShieldJob AI – Fake Job Detection System" submitted to the Department of Computer Science & Engineering, Aditya University, Surampalem, is a record of original work carried out by me during the 2-month Summer Internship period (May 6, 2026 – July 5, 2026) at VedXlence Innovations Pvt. Ltd., Hyderabad, in the domain of Machine Learning with Python under the guidance of the institutional and industry mentors. I further declare that this work has not been submitted in part or full elsewhere for the award of any other degree or diploma.
+P16 [Normal]: TANUKU RAM SAI
+Regd. No: 24A95A0503
+B.Tech - Computer Science & Engineering
+Aditya University, Surampalem
+P17 [Normal]: Date: ____________
+Place: Surampalem
+P19 [Normal]: INTERNSHIP COMPLETION CERTIFICATE
+P20 [Normal]: The student completed the 2-month AICTE Recognized Internship and Upskilling Program in Machine Learning with Python at VedXlence Innovations Pvt. Ltd., Hyderabad (May 6, 2026 – July 5, 2026). Below is the official certificate copy verification reference:
+P21 [Normal]: [ Official Internship Certificate Copy Attached — Tanuku Ram Sai (24A95A0503) ]
+Issued by: VedXlence Innovations Pvt. Ltd., Hyderabad
+AICTE Certified Upskilling & Project Implementation Program
+P23 [Normal]: ACKNOWLEDGEMENT
+P24 [Normal]: First and foremost, I would like to express my sincere gratitude to VedXlence Innovations Pvt. Ltd., Hyderabad, for providing me with the wonderful opportunity to undergo an intensive two-month AICTE-certified internship program in Machine Learning with Python. The structured training phase and rigorous real-world project implementation phase provided me with deep practical exposure to industry-standard AI development, Natural Language Processing, and full-stack deployment.
+P25 [Normal]: It is with immense pleasure that I express my indebted gratitude to my Project Guide, Mr. M. Srinu, Assistant Professor, Department of Computer Science & Engineering, for his invaluable guidance, constructive suggestions, and continuous encouragement throughout every stage of the project work.
+P26 [Normal]: I am profoundly grateful to Dr. T. Sudha Rani, Head of the Department of Computer Science & Engineering, for her inspiring support and for arranging all necessary departmental resources and infrastructural facilities for the successful completion of the project.
+P27 [Normal]: I wish to convey my respectful regards and sincere thanks to Dr. M. V. Rajesh, Associate Dean (School of Computing), Dr. A. Ramesh, Pro Vice-Chancellor (Engineering & Sciences), Dr. S. Rama Sree, Pro Vice-Chancellor (Academics), and Dr. G. Suresh, Registrar, for their continuous academic encouragement.
+P28 [Normal]: I also extend my sincere thanks to Dr. M. B. Srinivas, Vice-Chancellor, Dr. M. Sreenivasa Reddy, Deputy Pro-Chancellor, and the management of Aditya University for providing state-of-the-art laboratory infrastructure and computing resources.
+P29 [Normal]: TANUKU RAM SAI
+Regd. No: 24A95A0503
+P31 [Normal]: 1. ABSTRACT
+P32 [Normal]: Recruitment fraud on online job portals inflicts severe financial loss and identity theft on job seekers. Traditional keyword filters fail against sophisticated fraud schemes. This report presents ShieldJob AI, a multi-pillar fraud detection system combining Natural Language Processing, Machine Learning, and Generative Artificial Intelligence. Text features are extracted via TF-IDF with unigrams and bigrams across 17,880 historical job postings and classified using a Balanced Random Forest model. To overcome single-classifier limitations, Google Gemini 2.5 Flash validates contextual red flags, while BeautifulSoup scrapes company domains and search APIs audit social footprints. ShieldJob AI achieves 98.05% accuracy, 79.10% precision, 81.29% recall, and 98.49% ROC-AUC, deployed as a full-stack Flask application and Manifest V3 Chrome Extension.
+P33 [Normal]: 2. SDG MAPPING
+P34 [Normal]: The United Nations Sustainable Development Goals (SDGs) define a universal call to action to end poverty, protect the planet, and ensure prosperity. The ShieldJob AI system directly aligns with and contributes to the following key sustainable development targets:
+P37 [Normal]: TABLE OF CONTENTS
+P39 [Normal]: 3. INTRODUCTION
+P40 [Normal]: The digital transformation of the employment marketplace has revolutionized modern talent acquisition. Online job boards, professional networking platforms such as LinkedIn, and automated career aggregators have drastically reduced friction in connecting job seekers with prospective employers. However, this open digital ecosystem has also fostered an exponential surge in sophisticated recruitment scams, fraudulent job advertisements, and predatory phishing campaigns targeting college graduates, entry-level professionals, and remote job seekers worldwide.
+P41 [Normal]: Recruitment scams represent a catastrophic threat across multiple vectors: financial extortion disguised as mandatory "security deposits" or "training kits", identity theft through sensitive personal data collection (PAN, Aadhaar, bank credentials), and psychological trauma. Conventional security defenses typically rely on static keyword blacklists or isolated machine learning classifiers operating solely on raw job description text. Such single-dimensional approaches fail when fraudulent actors copy authentic company job templates verbatim, differing only in interview links, fake company domains, or unverified contact information.
+P42 [Normal]: The Multi-Pillar Verification Paradigm: To overcome the vulnerabilities of single-method detection systems, this project presents ShieldJob AI—a comprehensive, multi-pillar fake job detection and risk assessment system developed during the internship at VedXlence Innovations Pvt. Ltd. ShieldJob AI integrates four independent analytical layers into a unified verification engine:
+P43 [List Bullet]: 1. Machine Learning Classifier: An optimized Balanced Random Forest model trained on 17,880 historical job postings using TF-IDF unigram and bigram features to detect fraudulent textual syntax.
+P44 [List Bullet]: 2. Generative AI Contextual Auditor: Google Gemini 2.5 Flash LLM acting as an expert fraud investigator to audit unrealistic salary claims, vague job responsibilities, and covert fee requests.
+P45 [List Bullet]: 3. Company Website & Domain Analyzer: Automated BeautifulSoup scraping combined with AI verification to evaluate domain authenticity, business purpose, and contact legitimacy.
+P46 [List Bullet]: 4. Social Media & Public Footprint Verifier: Real-time search engine verification across LinkedIn, Reddit, Glassdoor, and community complaint databases with automated Gemini knowledge fallback.
+P47 [Normal]: Furthermore, to bridge the gap between academic algorithms and end-user accessibility, ShieldJob AI was implemented as both a high-performance Flask Single-Page Web Application and a Manifest V3 Google Chrome Extension. Job seekers can analyze job postings directly on recruitment portals with a single click, receiving transparent explainability bullets and an intuitive 0–100 Safety Score.
+P48 [Normal]: 4. OBJECTIVES
+P49 [Normal]: The primary technical and operational objectives of the ShieldJob AI internship project are outlined as follows:
+P50 [List Bullet]: To design and develop an automated, end-to-end multi-layer verification framework capable of detecting fraudulent job postings with high precision and scam recall.
+P51 [List Bullet]: To perform rigorous exploratory data analysis, text cleaning, and feature engineering on a benchmark dataset of 17,880 job postings using TF-IDF unigrams and bigrams (12,000 max features).
+P52 [List Bullet]: To implement and optimize a Balanced Random Forest classification model addressing severe class imbalance (95.16% legitimate vs 4.84% fraudulent).
+P53 [List Bullet]: To integrate Google Gemini 2.5 Flash Generative AI to perform contextual content validation, semantic anomaly detection, and fee-extortion pattern recognition.
+P54 [List Bullet]: To engineer an automated web scraper using BeautifulSoup to fetch company website content and analyze corporate credibility indicators.
+P55 [List Bullet]: To develop a dual-mode social reputation analyzer utilizing Brave Search API, Google Custom Search Engine (CSE), and LLM knowledge fallback for public footprint verification.
+P56 [List Bullet]: To implement an interpretable diagnostic engine that provides human-readable explainability bullet points detailing the exact reasons behind every safety score.
+P57 [List Bullet]: To construct a responsive, full-stack Flask web application providing interactive job analysis, real-time safety score gauges, and downloadable audit reports.
+P58 [List Bullet]: To build and package a Google Chrome Extension (Manifest V3) enabling seamless, 1-click in-browser job verification on platforms like LinkedIn, Indeed, and Internshala.
+P59 [List Bullet]: To deploy the complete production system on the Render cloud platform with robust CORS configuration, rate limiting, and typed exception handling.
+P61 [Normal]: 5. METHODOLOGY
+P62 [Normal]: The methodology adopted in ShieldJob AI combines supervised machine learning, advanced Natural Language Processing (NLP), large language model (LLM) reasoning, and live digital footprint auditing into an integrated diagnostic pipeline.
+P63 [Normal]: 5.1 Dataset Description and Characteristics
+P64 [Normal]: The project utilizes the benchmark Employment Scam Aegean Dataset (EMSCAD / processed_jobs) sourced from Kaggle. The dataset contains a total of 17,880 annotated job postings across 18 distinct attributes including job title, company profile, job description, requirements, benefits, employment type, required experience, and the binary target column 'fraudulent' (0 = Legitimate, 1 = Fraudulent).
+P66 [Normal]: 5.2 Data Preprocessing and Feature Extraction (TF-IDF)
+P67 [Normal]: Job text features from multiple fields (title, company profile, description, requirements, benefits) are concatenated into a unified text corpus. The text undergoes standard text normalization: lowercase conversion, URL tokenization, special character cleaning, and stopword removal. Feature vectorization is performed using Scikit-Learn's TfidfVectorizer with the following verified hyperparameter configuration:
+P68 [List Bullet]: • max_features = 12,000: Limits vocabulary to the 12,000 most informative textual terms.
+P69 [List Bullet]: • ngram_range = (1, 2): Extracts both single words (unigrams, e.g., 'wire', 'transfer') and two-word combinations (bigrams, e.g., 'wire transfer', 'data entry', 'immediate joining').
+P70 [List Bullet]: • sublinear_tf = True: Applies sublinear term-frequency scaling (1 + log(tf)) to prevent excessively frequent words from dominating feature weights.
+P71 [List Bullet]: • min_df = 2: Prunes rare terms appearing in fewer than 2 documents to eliminate noise.
+P72 [Normal]: 5.3 Machine Learning Classification (Balanced Random Forest)
+P73 [Normal]: Due to severe class imbalance (only 4.84% scam samples), standard classifiers tend to achieve high accuracy by simply predicting the majority class (95.16% baseline). To solve this, ShieldJob AI utilizes a Balanced Random Forest Classifier (RandomForestClassifier(n_estimators=100, class_weight='balanced', random_state=42)). The 'balanced' class weighting automatically adjusts weights inversely proportional to class frequencies: w_j = N / (k * n_j). Furthermore, a calibrated decision threshold of 0.24 was established through out-of-fold cross-validation to maximize scam recall while controlling false alarms.
+P74 [Normal]: 5.4 Gemini AI Contextual Auditing
+P75 [Normal]: While ML detects statistical n-gram frequencies, sophisticated scammers often write syntactically correct text that mimics real job offers. ShieldJob AI deploys Google Gemini 2.5 Flash as a semantic fraud auditor. The LLM evaluates text for covert extortion indicators: demands for upfront registration or training fees, requests for personal banking details prior to an interview, unrealistically inflated salaries for entry-level work, and vague corporate mission statements. Structured JSON output formats ensure deterministic API parsing and zero hallucination risk.
+P76 [Normal]: 5.5 Website and Social Presence Verification
+P77 [Normal]: Scammers frequently register spoofed or shell website domains. The Website Analyzer uses BeautifulSoup to extract live web content, and Gemini evaluates whether the domain reflects genuine business operations or a generic one-page shell. Simultaneously, the Social Media Analyzer queries Brave Search and Google CSE for company LinkedIn profiles, Glassdoor/Indeed employee reviews, and Reddit scam discussions. If live search quotas are unavailable, it seamlessly switches to Gemini AI Knowledge Mode.
+P78 [Normal]: 5.6 Multi-Pillar Safety Score Aggregation
+P79 [Normal]: Verified Mathematical Formulation: The overall safety assessment aggregates all four independent evaluation layers into a unified 0–100 Safety Score. The verified scoring formula and classification thresholds implemented in app.py are defined as:
+P80 [Normal]: Safety Score = (ML_Score × 0.30) + (Gemini_AI_Score × 0.30) + (Website_Score × 0.20) + (Social_Score × 0.20)
+P81 [List Bullet]: • Score 70 – 100 (Emerald): Legitimate / Safe to Apply — Strong corporate identity, realistic compensation, clean ML/AI audit.
+P82 [List Bullet]: • Score 50 – 69 (Amber): Suspicious / Proceed with Caution — Limited online footprint, vague responsibilities, or minor red flags.
+P83 [List Bullet]: • Score 0 – 49 (Rose/Red): High Risk / Likely a Scam — Confirmed fee demands, suspicious domain, severe ML fraud signals.
+P85 [Normal]: 5.7 System Architecture Workflow
+P86 [Normal]: The end-to-end multi-layer architecture of ShieldJob AI is illustrated below:
+P87 [Normal]: Figure 5.1: ShieldJob AI Multi-Pillar System Architecture and Scoring Workflow
+P88 [Normal]: 6. IMPLEMENTATION
+P89 [Normal]: The ShieldJob AI codebase is structured as a modular Python package adhering to clean architectural boundaries. All business logic, machine learning pipelines, external service adapters, and user interfaces are decoupled to ensure maintainability.
+P90 [Normal]: 6.1 Data Pipeline and Balanced Random Forest Engine
+P91 [Normal]: The training pipeline (scripts/train_model.py) loads processed_jobs.csv, fits the TfidfVectorizer on text attributes, and trains the Balanced Random Forest model with 100 estimators. The fitted model and vectorizer are serialized into models/job_fraud_model.pkl (5.6 MB) and models/tfidf_vectorizer.pkl (186 KB) using joblib.
+P93 [Normal]: Figure 6.1: Implementation of ML Training Pipeline and Stratified Cross-Validation
+P94 [Normal]: 6.2 Gemini AI Contextual Validator Service
+P95 [Normal]: The Gemini service (services/gemini_service.py) provides centralized communication with Google's gemini-2.5-flash model. It includes robust error classification (quota exceeded, network timeout, invalid key) and graceful fallback to ML-only mode if API quotas are exhausted, preventing server crashes.
+P97 [Normal]: Figure 6.2: Gemini 2.5 Flash Integration with Structured Error Handling
+P99 [Normal]: 6.3 Website and Domain Analyzer Service
+P100 [Normal]: The Website Analyzer (services/website_analyzer.py & services/website_scraper.py) accepts a company URL, fetches the DOM using BeautifulSoup with custom browser user-agent headers, and prompts Gemini to audit whether the content shows active commercial operations or a hollow shell template.
+P102 [Normal]: Figure 6.3: Website Scraping and Domain Credibility Verification Module
+P103 [Normal]: 6.4 Social Media and Public Footprint Verifier
+P104 [Normal]: The Social Media Analyzer (services/social_media_analyzer.py) extracts company names using a 3-tier parser and queries Brave Search / Google CSE. It checks for verified LinkedIn profiles, employee discussions on Reddit, Glassdoor review ratings, and flags scam-related keywords.
+P106 [Normal]: Figure 6.4: Social Presence Verification and Search API Integration
+P107 [Normal]: 6.5 Flask Web Application and Chrome Extension API
+P108 [Normal]: The Flask backend (app.py) exposes the primary Single-Page Application route (/) and a lightweight JSON API endpoint (/api/extension/analyze) with Cross-Origin Resource Sharing (CORS) enabled for chrome-extension://* origins.
+P110 [Normal]: Figure 6.5: Flask Application Architecture and Extension API Routes
+P112 [Normal]: 7. RESULTS AND DISCUSSION
+P113 [Normal]: The performance of ShieldJob AI was evaluated using rigorous 5-Fold Stratified Out-of-Fold Cross-Validation across the entire 17,880 dataset samples to guarantee zero data leakage between training and validation folds.
+P114 [Normal]: 7.1 Machine Learning Benchmark Metrics
+P115 [Normal]: The verified benchmark metrics recorded in models/model_metrics.json demonstrate outstanding classification performance, achieving a 98.05% overall accuracy and catching over 81.29% of all fraud cases across the imbalanced dataset:
+P117 [Normal]: 7.2 Out-of-Fold Confusion Matrix Analysis
+P118 [Normal]: The confusion matrix across all 17,880 samples at the calibrated threshold of 0.24 confirms robust operational reliability:
+P121 [Normal]: Figure 7.1: Live Accuracy & Proof Dashboard showing 5-Fold Stratified Metrics and Confusion Matrix
+P123 [Normal]: 7.3 Working Web Application Results
+P124 [Normal]: The deployed Flask Single-Page Application provides real-time multi-layer job audits with instant visual gauges and explainable diagnostics:
+P126 [Normal]: Figure 7.2: ShieldJob AI Web Interface — Job Analysis Input Form and Options
+P128 [Normal]: Figure 7.3: Legitimate Job Verification Result — Emerald Status with High Safety Score
+P131 [Normal]: Figure 7.4: Fraudulent Job Detection Result — Rose/Red Status with Critical Risk Flags
+P133 [Normal]: Figure 7.5: Scan History Dashboard with Interactive Details and Re-Scan Capabilities
+P135 [Normal]: 7.4 Google Chrome Extension Verification Results
+P136 [Normal]: The Google Chrome Extension (Manifest V3) allows users to highlight or paste job descriptions on recruitment websites and receive an instant 4-pillar risk assessment popup:
+P138 [Normal]: Figure 7.6: Chrome Extension Popup Interface with Live Job Input Field
+P140 [Normal]: Figure 7.7: Chrome Extension Verification Output Displaying Safety Score and Risk Breakdown
+P142 [Normal]: 8. KEY LEARNINGS
+P143 [Normal]: The two-month internship program at VedXlence Innovations Pvt. Ltd. provided immense practical and industry-aligned learning:
+P144 [List Bullet]: 1. Machine Learning & Imbalanced Datasets: Mastered techniques for handling severe class imbalance using class-weighted Random Forests, Stratified K-Fold cross-validation, and decision threshold calibration.
+P145 [List Bullet]: 2. Natural Language Processing (NLP): Gained deep practical expertise in TF-IDF feature extraction, sublinear scaling, unigram/bigram tokenization, and text normalization pipelines.
+P146 [List Bullet]: 3. Generative AI & LLM Prompt Engineering: Implemented production-grade Google Gemini 2.5 Flash API workflows with typed error handlers, rate-limiting safeguards, and structured JSON output constraints.
+P147 [List Bullet]: 4. Web Scraping & DOM Parsing: Developed robust scraping pipelines with BeautifulSoup and requests, incorporating browser user-agents, timeout protections, and content sanitization.
+P148 [List Bullet]: 5. Search API Integration & Multi-Mode Fallback: Engineered multi-provider search services (Brave Search / Google CSE) with seamless fallback to AI Knowledge Mode.
+P149 [List Bullet]: 6. Full-Stack Web Development: Built a modern cyber-themed Single-Page Application using Flask, Jinja2, HTML5, Vanilla CSS, and asynchronous JavaScript fetch APIs.
+P150 [List Bullet]: 7. Browser Extension Development: Developed a secure Manifest V3 Chrome Extension adhering to strict Content Security Policies (CSP) and cross-origin API integration.
+P151 [List Bullet]: 8. Cloud Deployment & Production Engineering: Successfully deployed full-stack AI applications on Render cloud infrastructure with Gunicorn WSGI and environment management.
+P152 [Normal]: 9. CONCLUSION AND FUTURE SCOPE
+P153 [Normal]: The ShieldJob AI project successfully demonstrates how combining classical Machine Learning (Balanced Random Forest) with modern Generative AI (Gemini 2.5 Flash), live web scraping, and social reputation verification can overcome the limitations of traditional single-method fraud filters. By evaluating 17,880 job postings with 5-Fold Stratified Cross-Validation, the system achieved a verified 98.05% accuracy, 79.10% precision, 81.29% scam recall, and 98.49% ROC-AUC. The delivery of a working Flask web application and a Google Chrome Extension bridges academic research with actionable everyday utility for job seekers.
+P154 [Normal]: 9.1 Future Enhancements
+P155 [List Bullet]: Automated DOM Job Parser: Enhance the Chrome Extension content scripts to automatically parse structured job postings directly from LinkedIn, Indeed, and Naukri DOM nodes with zero copy-pasting.
+P156 [List Bullet]: Multilingual Scam Detection: Expand NLP tokenizers and LLM prompts to analyze regional Indian and international language job postings.
+P157 [List Bullet]: Company Registration & MCA Verification: Integrate automated checks with official corporate registries (such as the Ministry of Corporate Affairs - MCA India) for company CIN validation.
+P158 [List Bullet]: Real-Time WhatsApp & Telegram Bot: Deploy conversational bot interfaces to allow job seekers to forward suspected recruitment messages for instant mobile verification.
+P160 [Normal]: 10. OUTCOMES
+P161 [Normal]: The concrete technical deliverables and artifacts produced as part of the internship project include:
+P162 [List Bullet]: Production Machine Learning Model (models/job_fraud_model.pkl) and TF-IDF Vectorizer (models/tfidf_vectorizer.pkl).
+P163 [List Bullet]: Full-Stack Flask Web Application with interactive risk score gauges, explainability bullets, and scan history.
+P164 [List Bullet]: Google Chrome Extension (Manifest V3) packaged in fake-job-detector-extension/ for direct in-browser job evaluation.
+P165 [List Bullet]: Live Cloud Deployment on Render: https://fake-job-detection-iuxn.onrender.com/#analyzer
+P166 [List Bullet]: Open-Source GitHub Repository: https://github.com/Coder-sai2004/Fake_Job_Detection
+P167 [List Bullet]: Chrome Extension Repository: https://github.com/Coder-sai2004/Fake_Job_Detection/tree/main/fake-job-detector-extension
+P168 [Normal]: 11. PUBLICATION AND PRODUCT DEVELOPMENT
+P169 [Normal]: 11.1 Product Development Status
+P170 [Normal]: ShieldJob AI was engineered as a fully functional, production-ready software product rather than a theoretical prototype. Key product features include live multi-pillar scoring, explainable diagnostics, responsive UI/UX design, browser extension integration, and reliable cloud hosting on Render.
+P171 [List Bullet]: Product Name: ShieldJob AI – Fake Job Detection System
+P172 [List Bullet]: Product Type: AI/ML-Powered Cybersecurity & Employment Scam Detection Platform
+P173 [List Bullet]: Live Product URL: https://fake-job-detection-iuxn.onrender.com/#analyzer
+P174 [List Bullet]: GitHub Codebase: https://github.com/Coder-sai2004/Fake_Job_Detection
+P175 [Normal]: 11.2 Research Publication Status
+P176 [Normal]: Publication Status: No publication (The project was developed as a software product and internship deliverable).
+P177 [Normal]: 12. ABOUT THE COMPANY / INTERNSHIP ORGANIZATION
+P178 [List Bullet]: Company Name: VedXlence Innovations Pvt. Ltd.
+P179 [List Bullet]: Company Website: https://www.vedxlence.in/
+P180 [List Bullet]: Company Location: Hyderabad, Telangana, India
+P181 [List Bullet]: Internship Domain: Machine Learning with Python
+P182 [List Bullet]: Internship Duration: 2 Months (May 6, 2026 – July 5, 2026)
+P183 [List Bullet]: Program Type: AICTE Certified Internship & Upskilling Program
+P184 [List Bullet]: Program Structure: Phase 1 — Technical Upskilling & Training | Phase 2 — Real-World Project Implementation
+P185 [List Bullet]: Internship Role / Designation: [NOT PROVIDED IN OFFER LETTER / PLACEHOLDER]
+P186 [List Bullet]: Company Description: [NOT PROVIDED / VERIFIED FROM OFFICIAL PORTAL]
+P188 [Normal]: 13. REFERENCES
+P189 [Normal]: [1] Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+P190 [Normal]: [2] Google Generative AI Team. (2024). Gemini: A Family of Highly Capable Multimodal Models. Google DeepMind Technical Report.
+P191 [Normal]: [3] Kaggle Dataset. (2020). Real or Fake: Fake JobPosting Prediction (EMSCAD). Available at: https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
+P192 [Normal]: [4] Breiman, L. (2001). Random Forests. Machine Learning, 45(1), 5-32.
+P193 [Normal]: [5] Ramos, J. (2003). Using TF-IDF to Determine Word Relevance in Document Queries. Proceedings of the First Instructional Conference on Machine Learning, 242-248.
+P194 [Normal]: [6] Richardson, L. (2007). Beautiful Soup Documentation. Available at: https://www.crummy.com/software/BeautifulSoup/
+P195 [Normal]: [7] Grinberg, M. (2018). Flask Web Development: Developing Web Applications with Python (2nd ed.). O'Reilly Media.
+P196 [Normal]: [8] Google Chrome Developers. (2023). Chrome Extensions Documentation — Manifest V3 Overview. Available at: https://developer.chrome.com/docs/extensions/mv3/intro/
+P197 [Normal]: [9] Render Cloud Platform. (2024). Render Documentation & Deployment Guides. Available at: https://render.com/docs
+P198 [Normal]: [10] United Nations Department of Economic and Social Affairs. (2015). The 17 Sustainable Development Goals. United Nations.
+
+
+========================================
+              DOCX TABLES              
+========================================
+
+
+Table 0:
+  ['Project Guide', 'Head of the Department']
+  ['__________________________\nMr. M. Srinu, M.Tech., (Ph.D.)\nAssistant Professor, Dept. of CSE', '__________________________\nDr. T. Sudha Rani, M.Tech., Ph.D.\nHead & Professor, Dept. of CSE']
+  ['Date: ____________\nPlace: Surampalem', 'Aditya University\nSurampalem - 533437']
+
+Table 1:
+  ['SDG #', 'Goal Title', 'Relevant Target', 'Project Contribution & Alignment']
+  ['SDG 8', 'Decent Work and Economic Growth', 'Target 8.8: Protect labour rights and promote safe and secure working environments for all workers.', 'Protects vulnerable job seekers and students from exploitative fake employment scams, fraudulent registration fees, and identity theft across digital employment portals.']
+  ['SDG 9', 'Industry, Innovation and Infrastructure', 'Target 9.5: Enhance scientific research, upgrade technological capabilities of industrial sectors.', 'Leverages modern Machine Learning (Balanced Random Forest), NLP (TF-IDF), and Generative AI (Gemini 2.5 Flash) to build resilient, automated cybersecurity infrastructure.']
+  ['SDG 16', 'Peace, Justice and Strong Institutions', 'Target 16.4: Significantly reduce illicit financial and arms flows, combat all forms of organized crime.', 'Mitigates organized cyber-fraud networks operating fake job syndicates by providing multi-layer domain auditing and verifiable social reputation analysis.']
+
+Table 2:
+  ['Section No.', 'Section Title', 'Page No.']
+  ['1', 'Abstract', 'i']
+  ['2', 'SDG Mapping', 'ii']
+  ['3', 'Introduction', '1']
+  ['4', 'Objectives', '4']
+  ['5', 'Methodology', '5']
+  ['6', 'Implementation', '10']
+  ['7', 'Results and Discussion', '17']
+  ['8', 'Key Learnings', '22']
+  ['9', 'Conclusion and Future Scope', '24']
+  ['10', 'Outcomes', '26']
+  ['11', 'Publication and Product Development', '27']
+  ['12', 'About the Company / Internship Organization', '28']
+  ['13', 'References', '29']
+  ['', '', '']
+  ['', '', '']
+
+Table 3:
+  ['Category / Class', 'Number of Samples', 'Percentage (%)', 'Class Weight Strategy']
+  ['Legitimate Job Postings (Class 0)', '17,014', '95.16%', 'Standard Weight (Majority Class)']
+  ['Fraudulent Job Postings (Class 1)', '866', '4.84%', 'Balanced Class Weighting (~19.6x Inverse Weight)']
+  ['Total Dataset Postings', '17,880', '100.00%', '5-Fold Stratified Cross-Validation']
+
+Table 4:
+  ['SHIELDJOB AI MULTI-PILLAR ARCHITECTURE\n\n[ USER INPUT: Job Description + Optional Company URL ]\n                     │\n                     ▼\n┌────────────────────────────────────────────────────────┐\n│         PARALLEL MULTI-LAYER VERIFICATION PIPELINE     │\n├──────────────────────────┬─────────────────────────────┤\n│  Layer 1: ML Classifier  │  Layer 2: Gemini 2.5 Flash  │\n│  TF-IDF (12K N-grams)    │  Semantic Red-Flag Audit    │\n│  Balanced Random Forest  │  Fee / Extortion Detection  │\n├──────────────────────────┼─────────────────────────────┤\n│  Layer 3: Website Scraper│  Layer 4: Social Footprint  │\n│  BeautifulSoup Extraction│  Brave Search / Google CSE  │\n│  Domain Legitimacy Check │  LinkedIn & Glassdoor Audit │\n└──────────────────────────┴─────────────────────────────┘\n                     │\n                     ▼\n[ SCORE AGGREGATION & EXPLAINABILITY ENGINE ]\nSafety Score = 0.30(ML) + 0.30(AI) + 0.20(Web) + 0.20(Social)\n                     │\n                     ▼\n┌────────────────────────────────────────────────────────┐\n│             FINAL VERDICT & AUDIT DIAGNOSTIC           │\n│   Safe (≥70)  |  Suspicious (50-69)  |  Fake (<50)     │\n│   Interactive Breakdown • Explainability Bullets       │\n└────────────────────────────────────────────────────────┘']
+
+Table 5:
+  ['Performance Metric', 'Verified Value', 'Technical Interpretation & Significance']
+  ['Accuracy', '98.05%', 'Outperforms the majority-class baseline (95.16%) by 2.89 percentage points.']
+  ['Precision', '79.10%', 'High reliability: ~8 out of 10 flagged jobs are confirmed fraudulent scams.']
+  ['Recall (Catch Rate)', '81.29%', 'Successfully detects 704 out of 866 real fraud postings across validation folds.']
+  ['F1-Score', '80.18%', 'Strong harmonic balance between precision and recall on extreme class imbalance.']
+  ['ROC-AUC', '98.49%', 'Exceptional class separability and discrimination power across all thresholds.']
+
+Table 6:
+  ['Total Samples: 17,880', 'Predicted Legitimate (Real)', 'Predicted Fraudulent (Fake)']
+  ['Actual Legitimate (17,014)', 'True Negatives (TN): 16,828\n(Real Jobs Approved — 98.9%)', 'False Positives (FP): 186\n(False Alarms Flagged — 1.1%)']
+  ['Actual Fraudulent (866)', 'False Negatives (FN): 162\n(Scams Missed — 18.7%)', 'True Positives (TP): 704\n(Scams Caught — 81.3%)']

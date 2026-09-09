@@ -1,0 +1,223 @@
+=== SECTIONS ===
+Section 0: w=612.0 h=792.0 L=90.0 R=72.0 T=72.0 B=72.0
+Header: []
+Footer: []
+
+=== PARAGRAPHS ===
+[000] style=Normal align=CENTER (1) font=None sz=14.0 bold=True | A SUMMER INTERNSHIP REPORT
+ON
+[001] style=Normal align=CENTER (1) font=None sz=18.0 bold=True | ShieldJob AI – Fake Job Detection System
+[002] style=Normal align=CENTER (1) font=None sz=11.0 bold=None | Submitted in partial fulfillment of the requirements for the award of the degree of
+[003] style=Normal align=CENTER (1) font=None sz=13.5 bold=True | BACHELOR OF TECHNOLOGY
+IN
+COMPUTER SCIENCE & ENGINEERING
+[004] style=Normal align=CENTER (1) font=None sz=11.0 bold=None | Submitted by
+[005] style=Normal align=CENTER (1) font=None sz=13.0 bold=True | TANUKU RAM SAI
+(Regd. No: 24A95A0503)
+[006] style=Normal align=CENTER (1) font=None sz=11.0 bold=None | Carried Out At
+[007] style=Normal align=CENTER (1) font=None sz=11.0 bold=True | VEDXLENCE INNOVATIONS PVT. LTD., HYDERABAD
+(AICTE Certified Internship & Upskilling Program | May 6, 2026 – July 5, 2026)
+[008] style=Normal align=CENTER (1) font=None sz=None bold=True | DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING
+ADITYA UNIVERSITY
+(Formerly Aditya Engineering College (A))
+Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India
+2025–2026
+[009] <EMPTY LINE>
+[010] style=Normal align=CENTER (1) font=None sz=13.0 bold=True | DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING
+ADITYA UNIVERSITY
+Surampalem, Andhra Pradesh, India
+[011] style=Normal align=CENTER (1) font=None sz=16.0 bold=True | CERTIFICATE
+[012] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | This is to certify that the internship report entitled "ShieldJob AI – Fake Job Detection System" is being submitted by Tanuku Ram Sai (Regd. No: 24A95A0503) in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology in Computer Science & Engineering at Aditya University during the academic year 2025–2026. The work was carried out as part of the AICTE Certified Summer Internship Program at VedXlence Innovations Pvt. Ltd., Hyderabad, between May 6, 2026, and July 5, 2026. The work carried out by the student is genuine, original, and fulfills the requirements prescribed by the institution.
+[013] <EMPTY LINE>
+[014] style=Normal align=CENTER (1) font=None sz=16.0 bold=True | DECLARATION
+[015] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | I hereby declare that the internship report entitled "ShieldJob AI – Fake Job Detection System" submitted to the Department of Computer Science & Engineering, Aditya University, Surampalem, is a record of original work carried out by me during the 2-month Summer Internship period (May 6, 2026 – July 5, 2026) at VedXlence Innovations Pvt. Ltd., Hyderabad, in the domain of Machine Learning with Python under the guidance of the institutional and industry mentors. I further declare that this work has not been submitted in part or full elsewhere for the award of any other degree or diploma.
+[016] style=Normal align=RIGHT (2) font=None sz=11.5 bold=True | TANUKU RAM SAI
+Regd. No: 24A95A0503
+B.Tech - Computer Science & Engineering
+Aditya University, Surampalem
+[017] style=Normal align=None font=None sz=11.0 bold=None | Date: ____________
+Place: Surampalem
+[018] <EMPTY LINE>
+[019] style=Normal align=CENTER (1) font=None sz=16.0 bold=True | INTERNSHIP COMPLETION CERTIFICATE
+[020] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The student completed the 2-month AICTE Recognized Internship and Upskilling Program in Machine Learning with Python at VedXlence Innovations Pvt. Ltd., Hyderabad (May 6, 2026 – July 5, 2026). Below is the official certificate copy verification reference:
+[021] style=Normal align=CENTER (1) font=None sz=11.5 bold=True | [ Official Internship Certificate Copy Attached — Tanuku Ram Sai (24A95A0503) ]
+Issued by: VedXlence Innovations Pvt. Ltd., Hyderabad
+AICTE Certified Upskilling & Project Implementation Program
+[022] <EMPTY LINE>
+[023] style=Normal align=CENTER (1) font=None sz=16.0 bold=True | ACKNOWLEDGEMENT
+[024] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | First and foremost, I would like to express my sincere gratitude to VedXlence Innovations Pvt. Ltd., Hyderabad, for providing me with the wonderful opportunity to undergo an intensive two-month AICTE-certified internship program in Machine Learning with Python. The structured training phase and rigorous real-world project implementation phase provided me with deep practical exposure to industry-standard AI development, Natural Language Processing, and full-stack deployment.
+[025] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | It is with immense pleasure that I express my indebted gratitude to my Project Guide, Mr. M. Srinu, Assistant Professor, Department of Computer Science & Engineering, for his invaluable guidance, constructive suggestions, and continuous encouragement throughout every stage of the project work.
+[026] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | I am profoundly grateful to Dr. T. Sudha Rani, Head of the Department of Computer Science & Engineering, for her inspiring support and for arranging all necessary departmental resources and infrastructural facilities for the successful completion of the project.
+[027] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | I wish to convey my respectful regards and sincere thanks to Dr. M. V. Rajesh, Associate Dean (School of Computing), Dr. A. Ramesh, Pro Vice-Chancellor (Engineering & Sciences), Dr. S. Rama Sree, Pro Vice-Chancellor (Academics), and Dr. G. Suresh, Registrar, for their continuous academic encouragement.
+[028] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | I also extend my sincere thanks to Dr. M. B. Srinivas, Vice-Chancellor, Dr. M. Sreenivasa Reddy, Deputy Pro-Chancellor, and the management of Aditya University for providing state-of-the-art laboratory infrastructure and computing resources.
+[029] style=Normal align=RIGHT (2) font=None sz=11.5 bold=True | TANUKU RAM SAI
+Regd. No: 24A95A0503
+[030] <EMPTY LINE>
+[031] style=Normal align=None font=None sz=16.0 bold=True | 1. ABSTRACT
+[032] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Recruitment fraud on online job portals inflicts severe financial loss and identity theft on job seekers. Traditional keyword filters fail against sophisticated fraud schemes. This report presents ShieldJob AI, a multi-pillar fraud detection system combining Natural Language Processing, Machine Learning, and Generative Artificial Intelligence. Text features are extracted via TF-IDF with unigrams and bigrams across 17,880 historical job postings and classified using a Balanced Random Forest model. To overcome single-classifier limitations, Google Gemini 2.5 Flash validates contextual red flags, while BeautifulSoup scrapes company domains and search APIs audit social footprints. ShieldJob AI achieves 98.05% accuracy, 79.10% precision, 81.29% recall, and 98.49% ROC-AUC, deployed as a full-stack Flask application and Manifest V3 Chrome Extension.
+[033] style=Normal align=None font=None sz=16.0 bold=True | 2. SDG MAPPING
+[034] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The United Nations Sustainable Development Goals (SDGs) define a universal call to action to end poverty, protect the planet, and ensure prosperity. The ShieldJob AI system directly aligns with and contributes to the following key sustainable development targets:
+[035] <EMPTY LINE>
+[036] <EMPTY LINE>
+[037] style=Normal align=None font=None sz=16.0 bold=True | TABLE OF CONTENTS
+[038] <EMPTY LINE>
+[039] style=Normal align=None font=None sz=16.0 bold=True | 3. INTRODUCTION
+[040] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The digital transformation of the employment marketplace has revolutionized modern talent acquisition. Online job boards, professional networking platforms such as LinkedIn, and automated career aggregators have drastically reduced friction in connecting job seekers with prospective employers. However, this open digital ecosystem has also fostered an exponential surge in sophisticated recruitment scams, fraudulent job advertisements, and predatory phishing campaigns targeting college graduates, entry-level professionals, and remote job seekers worldwide.
+[041] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Recruitment scams represent a catastrophic threat across multiple vectors: financial extortion disguised as mandatory "security deposits" or "training kits", identity theft through sensitive personal data collection (PAN, Aadhaar, bank credentials), and psychological trauma. Conventional security defenses typically rely on static keyword blacklists or isolated machine learning classifiers operating solely on raw job description text. Such single-dimensional approaches fail when fraudulent actors copy authentic company job templates verbatim, differing only in interview links, fake company domains, or unverified contact information.
+[042] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | The Multi-Pillar Verification Paradigm: To overcome the vulnerabilities of single-method detection systems, this project presents ShieldJob AI—a comprehensive, multi-pillar fake job detection and risk assessment system developed during the internship at VedXlence Innovations Pvt. Ltd. ShieldJob AI integrates four independent analytical layers into a unified verification engine:
+[043] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 1. Machine Learning Classifier: An optimized Balanced Random Forest model trained on 17,880 historical job postings using TF-IDF unigram and bigram features to detect fraudulent textual syntax.
+[044] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 2. Generative AI Contextual Auditor: Google Gemini 2.5 Flash LLM acting as an expert fraud investigator to audit unrealistic salary claims, vague job responsibilities, and covert fee requests.
+[045] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 3. Company Website & Domain Analyzer: Automated BeautifulSoup scraping combined with AI verification to evaluate domain authenticity, business purpose, and contact legitimacy.
+[046] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 4. Social Media & Public Footprint Verifier: Real-time search engine verification across LinkedIn, Reddit, Glassdoor, and community complaint databases with automated Gemini knowledge fallback.
+[047] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Furthermore, to bridge the gap between academic algorithms and end-user accessibility, ShieldJob AI was implemented as both a high-performance Flask Single-Page Web Application and a Manifest V3 Google Chrome Extension. Job seekers can analyze job postings directly on recruitment portals with a single click, receiving transparent explainability bullets and an intuitive 0–100 Safety Score.
+[048] style=Normal align=None font=None sz=16.0 bold=True | 4. OBJECTIVES
+[049] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The primary technical and operational objectives of the ShieldJob AI internship project are outlined as follows:
+[050] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To design and develop an automated, end-to-end multi-layer verification framework capable of detecting fraudulent job postings with high precision and scam recall.
+[051] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To perform rigorous exploratory data analysis, text cleaning, and feature engineering on a benchmark dataset of 17,880 job postings using TF-IDF unigrams and bigrams (12,000 max features).
+[052] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To implement and optimize a Balanced Random Forest classification model addressing severe class imbalance (95.16% legitimate vs 4.84% fraudulent).
+[053] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To integrate Google Gemini 2.5 Flash Generative AI to perform contextual content validation, semantic anomaly detection, and fee-extortion pattern recognition.
+[054] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To engineer an automated web scraper using BeautifulSoup to fetch company website content and analyze corporate credibility indicators.
+[055] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To develop a dual-mode social reputation analyzer utilizing Brave Search API, Google Custom Search Engine (CSE), and LLM knowledge fallback for public footprint verification.
+[056] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To implement an interpretable diagnostic engine that provides human-readable explainability bullet points detailing the exact reasons behind every safety score.
+[057] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To construct a responsive, full-stack Flask web application providing interactive job analysis, real-time safety score gauges, and downloadable audit reports.
+[058] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To build and package a Google Chrome Extension (Manifest V3) enabling seamless, 1-click in-browser job verification on platforms like LinkedIn, Indeed, and Internshala.
+[059] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | To deploy the complete production system on the Render cloud platform with robust CORS configuration, rate limiting, and typed exception handling.
+[060] <EMPTY LINE>
+[061] style=Normal align=None font=None sz=16.0 bold=True | 5. METHODOLOGY
+[062] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The methodology adopted in ShieldJob AI combines supervised machine learning, advanced Natural Language Processing (NLP), large language model (LLM) reasoning, and live digital footprint auditing into an integrated diagnostic pipeline.
+[063] style=Normal align=None font=None sz=13.5 bold=True | 5.1 Dataset Description and Characteristics
+[064] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The project utilizes the benchmark Employment Scam Aegean Dataset (EMSCAD / processed_jobs) sourced from Kaggle. The dataset contains a total of 17,880 annotated job postings across 18 distinct attributes including job title, company profile, job description, requirements, benefits, employment type, required experience, and the binary target column 'fraudulent' (0 = Legitimate, 1 = Fraudulent).
+[065] <EMPTY LINE>
+[066] style=Normal align=None font=None sz=13.5 bold=True | 5.2 Data Preprocessing and Feature Extraction (TF-IDF)
+[067] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Job text features from multiple fields (title, company profile, description, requirements, benefits) are concatenated into a unified text corpus. The text undergoes standard text normalization: lowercase conversion, URL tokenization, special character cleaning, and stopword removal. Feature vectorization is performed using Scikit-Learn's TfidfVectorizer with the following verified hyperparameter configuration:
+[068] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • max_features = 12,000: Limits vocabulary to the 12,000 most informative textual terms.
+[069] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • ngram_range = (1, 2): Extracts both single words (unigrams, e.g., 'wire', 'transfer') and two-word combinations (bigrams, e.g., 'wire transfer', 'data entry', 'immediate joining').
+[070] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • sublinear_tf = True: Applies sublinear term-frequency scaling (1 + log(tf)) to prevent excessively frequent words from dominating feature weights.
+[071] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • min_df = 2: Prunes rare terms appearing in fewer than 2 documents to eliminate noise.
+[072] style=Normal align=None font=None sz=13.5 bold=True | 5.3 Machine Learning Classification (Balanced Random Forest)
+[073] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Due to severe class imbalance (only 4.84% scam samples), standard classifiers tend to achieve high accuracy by simply predicting the majority class (95.16% baseline). To solve this, ShieldJob AI utilizes a Balanced Random Forest Classifier (RandomForestClassifier(n_estimators=100, class_weight='balanced', random_state=42)). The 'balanced' class weighting automatically adjusts weights inversely proportional to class frequencies: w_j = N / (k * n_j). Furthermore, a calibrated decision threshold of 0.24 was established through out-of-fold cross-validation to maximize scam recall while controlling false alarms.
+[074] style=Normal align=None font=None sz=13.5 bold=True | 5.4 Gemini AI Contextual Auditing
+[075] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | While ML detects statistical n-gram frequencies, sophisticated scammers often write syntactically correct text that mimics real job offers. ShieldJob AI deploys Google Gemini 2.5 Flash as a semantic fraud auditor. The LLM evaluates text for covert extortion indicators: demands for upfront registration or training fees, requests for personal banking details prior to an interview, unrealistically inflated salaries for entry-level work, and vague corporate mission statements. Structured JSON output formats ensure deterministic API parsing and zero hallucination risk.
+[076] style=Normal align=None font=None sz=13.5 bold=True | 5.5 Website and Social Presence Verification
+[077] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Scammers frequently register spoofed or shell website domains. The Website Analyzer uses BeautifulSoup to extract live web content, and Gemini evaluates whether the domain reflects genuine business operations or a generic one-page shell. Simultaneously, the Social Media Analyzer queries Brave Search and Google CSE for company LinkedIn profiles, Glassdoor/Indeed employee reviews, and Reddit scam discussions. If live search quotas are unavailable, it seamlessly switches to Gemini AI Knowledge Mode.
+[078] style=Normal align=None font=None sz=13.5 bold=True | 5.6 Multi-Pillar Safety Score Aggregation
+[079] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | Verified Mathematical Formulation: The overall safety assessment aggregates all four independent evaluation layers into a unified 0–100 Safety Score. The verified scoring formula and classification thresholds implemented in app.py are defined as:
+[080] style=Normal align=CENTER (1) font=None sz=11.5 bold=True | Safety Score = (ML_Score × 0.30) + (Gemini_AI_Score × 0.30) + (Website_Score × 0.20) + (Social_Score × 0.20)
+[081] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • Score 70 – 100 (Emerald): Legitimate / Safe to Apply — Strong corporate identity, realistic compensation, clean ML/AI audit.
+[082] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • Score 50 – 69 (Amber): Suspicious / Proceed with Caution — Limited online footprint, vague responsibilities, or minor red flags.
+[083] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | • Score 0 – 49 (Rose/Red): High Risk / Likely a Scam — Confirmed fee demands, suspicious domain, severe ML fraud signals.
+[084] <EMPTY LINE>
+[085] style=Normal align=None font=None sz=13.5 bold=True | 5.7 System Architecture Workflow
+[086] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The end-to-end multi-layer architecture of ShieldJob AI is illustrated below:
+[087] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 5.1: ShieldJob AI Multi-Pillar System Architecture and Scoring Workflow
+[088] style=Normal align=None font=None sz=16.0 bold=True | 6. IMPLEMENTATION
+[089] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The ShieldJob AI codebase is structured as a modular Python package adhering to clean architectural boundaries. All business logic, machine learning pipelines, external service adapters, and user interfaces are decoupled to ensure maintainability.
+[090] style=Normal align=None font=None sz=13.5 bold=True | 6.1 Data Pipeline and Balanced Random Forest Engine
+[091] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The training pipeline (scripts/train_model.py) loads processed_jobs.csv, fits the TfidfVectorizer on text attributes, and trains the Balanced Random Forest model with 100 estimators. The fitted model and vectorizer are serialized into models/job_fraud_model.pkl (5.6 MB) and models/tfidf_vectorizer.pkl (186 KB) using joblib.
+[092] <EMPTY LINE>
+[093] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 6.1: Implementation of ML Training Pipeline and Stratified Cross-Validation
+[094] style=Normal align=None font=None sz=13.5 bold=True | 6.2 Gemini AI Contextual Validator Service
+[095] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The Gemini service (services/gemini_service.py) provides centralized communication with Google's gemini-2.5-flash model. It includes robust error classification (quota exceeded, network timeout, invalid key) and graceful fallback to ML-only mode if API quotas are exhausted, preventing server crashes.
+[096] <EMPTY LINE>
+[097] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 6.2: Gemini 2.5 Flash Integration with Structured Error Handling
+[098] <EMPTY LINE>
+[099] style=Normal align=None font=None sz=13.5 bold=True | 6.3 Website and Domain Analyzer Service
+[100] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The Website Analyzer (services/website_analyzer.py & services/website_scraper.py) accepts a company URL, fetches the DOM using BeautifulSoup with custom browser user-agent headers, and prompts Gemini to audit whether the content shows active commercial operations or a hollow shell template.
+[101] <EMPTY LINE>
+[102] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 6.3: Website Scraping and Domain Credibility Verification Module
+[103] style=Normal align=None font=None sz=13.5 bold=True | 6.4 Social Media and Public Footprint Verifier
+[104] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The Social Media Analyzer (services/social_media_analyzer.py) extracts company names using a 3-tier parser and queries Brave Search / Google CSE. It checks for verified LinkedIn profiles, employee discussions on Reddit, Glassdoor review ratings, and flags scam-related keywords.
+[105] <EMPTY LINE>
+[106] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 6.4: Social Presence Verification and Search API Integration
+[107] style=Normal align=None font=None sz=13.5 bold=True | 6.5 Flask Web Application and Chrome Extension API
+[108] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The Flask backend (app.py) exposes the primary Single-Page Application route (/) and a lightweight JSON API endpoint (/api/extension/analyze) with Cross-Origin Resource Sharing (CORS) enabled for chrome-extension://* origins.
+[109] <EMPTY LINE>
+[110] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 6.5: Flask Application Architecture and Extension API Routes
+[111] <EMPTY LINE>
+[112] style=Normal align=None font=None sz=16.0 bold=True | 7. RESULTS AND DISCUSSION
+[113] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The performance of ShieldJob AI was evaluated using rigorous 5-Fold Stratified Out-of-Fold Cross-Validation across the entire 17,880 dataset samples to guarantee zero data leakage between training and validation folds.
+[114] style=Normal align=None font=None sz=13.5 bold=True | 7.1 Machine Learning Benchmark Metrics
+[115] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The verified benchmark metrics recorded in models/model_metrics.json demonstrate outstanding classification performance, achieving a 98.05% overall accuracy and catching over 81.29% of all fraud cases across the imbalanced dataset:
+[116] <EMPTY LINE>
+[117] style=Normal align=None font=None sz=13.5 bold=True | 7.2 Out-of-Fold Confusion Matrix Analysis
+[118] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The confusion matrix across all 17,880 samples at the calibrated threshold of 0.24 confirms robust operational reliability:
+[119] <EMPTY LINE>
+[120] <EMPTY LINE>
+[121] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.1: Live Accuracy & Proof Dashboard showing 5-Fold Stratified Metrics and Confusion Matrix
+[122] <EMPTY LINE>
+[123] style=Normal align=None font=None sz=13.5 bold=True | 7.3 Working Web Application Results
+[124] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The deployed Flask Single-Page Application provides real-time multi-layer job audits with instant visual gauges and explainable diagnostics:
+[125] <EMPTY LINE>
+[126] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.2: ShieldJob AI Web Interface — Job Analysis Input Form and Options
+[127] <EMPTY LINE>
+[128] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.3: Legitimate Job Verification Result — Emerald Status with High Safety Score
+[129] <EMPTY LINE>
+[130] <EMPTY LINE>
+[131] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.4: Fraudulent Job Detection Result — Rose/Red Status with Critical Risk Flags
+[132] <EMPTY LINE>
+[133] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.5: Scan History Dashboard with Interactive Details and Re-Scan Capabilities
+[134] <EMPTY LINE>
+[135] style=Normal align=None font=None sz=13.5 bold=True | 7.4 Google Chrome Extension Verification Results
+[136] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The Google Chrome Extension (Manifest V3) allows users to highlight or paste job descriptions on recruitment websites and receive an instant 4-pillar risk assessment popup:
+[137] <EMPTY LINE>
+[138] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.6: Chrome Extension Popup Interface with Live Job Input Field
+[139] <EMPTY LINE>
+[140] style=Normal align=CENTER (1) font=None sz=10.5 bold=True | Figure 7.7: Chrome Extension Verification Output Displaying Safety Score and Risk Breakdown
+[141] <EMPTY LINE>
+[142] style=Normal align=None font=None sz=16.0 bold=True | 8. KEY LEARNINGS
+[143] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The two-month internship program at VedXlence Innovations Pvt. Ltd. provided immense practical and industry-aligned learning:
+[144] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 1. Machine Learning & Imbalanced Datasets: Mastered techniques for handling severe class imbalance using class-weighted Random Forests, Stratified K-Fold cross-validation, and decision threshold calibration.
+[145] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 2. Natural Language Processing (NLP): Gained deep practical expertise in TF-IDF feature extraction, sublinear scaling, unigram/bigram tokenization, and text normalization pipelines.
+[146] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 3. Generative AI & LLM Prompt Engineering: Implemented production-grade Google Gemini 2.5 Flash API workflows with typed error handlers, rate-limiting safeguards, and structured JSON output constraints.
+[147] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 4. Web Scraping & DOM Parsing: Developed robust scraping pipelines with BeautifulSoup and requests, incorporating browser user-agents, timeout protections, and content sanitization.
+[148] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 5. Search API Integration & Multi-Mode Fallback: Engineered multi-provider search services (Brave Search / Google CSE) with seamless fallback to AI Knowledge Mode.
+[149] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 6. Full-Stack Web Development: Built a modern cyber-themed Single-Page Application using Flask, Jinja2, HTML5, Vanilla CSS, and asynchronous JavaScript fetch APIs.
+[150] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 7. Browser Extension Development: Developed a secure Manifest V3 Chrome Extension adhering to strict Content Security Policies (CSP) and cross-origin API integration.
+[151] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=True | 8. Cloud Deployment & Production Engineering: Successfully deployed full-stack AI applications on Render cloud infrastructure with Gunicorn WSGI and environment management.
+[152] style=Normal align=None font=None sz=16.0 bold=True | 9. CONCLUSION AND FUTURE SCOPE
+[153] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The ShieldJob AI project successfully demonstrates how combining classical Machine Learning (Balanced Random Forest) with modern Generative AI (Gemini 2.5 Flash), live web scraping, and social reputation verification can overcome the limitations of traditional single-method fraud filters. By evaluating 17,880 job postings with 5-Fold Stratified Cross-Validation, the system achieved a verified 98.05% accuracy, 79.10% precision, 81.29% scam recall, and 98.49% ROC-AUC. The delivery of a working Flask web application and a Google Chrome Extension bridges academic research with actionable everyday utility for job seekers.
+[154] style=Normal align=None font=None sz=13.5 bold=True | 9.1 Future Enhancements
+[155] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Automated DOM Job Parser: Enhance the Chrome Extension content scripts to automatically parse structured job postings directly from LinkedIn, Indeed, and Naukri DOM nodes with zero copy-pasting.
+[156] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Multilingual Scam Detection: Expand NLP tokenizers and LLM prompts to analyze regional Indian and international language job postings.
+[157] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Company Registration & MCA Verification: Integrate automated checks with official corporate registries (such as the Ministry of Corporate Affairs - MCA India) for company CIN validation.
+[158] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Real-Time WhatsApp & Telegram Bot: Deploy conversational bot interfaces to allow job seekers to forward suspected recruitment messages for instant mobile verification.
+[159] <EMPTY LINE>
+[160] style=Normal align=None font=None sz=16.0 bold=True | 10. OUTCOMES
+[161] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | The concrete technical deliverables and artifacts produced as part of the internship project include:
+[162] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Production Machine Learning Model (models/job_fraud_model.pkl) and TF-IDF Vectorizer (models/tfidf_vectorizer.pkl).
+[163] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Full-Stack Flask Web Application with interactive risk score gauges, explainability bullets, and scan history.
+[164] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Google Chrome Extension (Manifest V3) packaged in fake-job-detector-extension/ for direct in-browser job evaluation.
+[165] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Live Cloud Deployment on Render: https://fake-job-detection-iuxn.onrender.com/#analyzer
+[166] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Open-Source GitHub Repository: https://github.com/Coder-sai2004/Fake_Job_Detection
+[167] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Chrome Extension Repository: https://github.com/Coder-sai2004/Fake_Job_Detection/tree/main/fake-job-detector-extension
+[168] style=Normal align=None font=None sz=16.0 bold=True | 11. PUBLICATION AND PRODUCT DEVELOPMENT
+[169] style=Normal align=None font=None sz=13.5 bold=True | 11.1 Product Development Status
+[170] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | ShieldJob AI was engineered as a fully functional, production-ready software product rather than a theoretical prototype. Key product features include live multi-pillar scoring, explainable diagnostics, responsive UI/UX design, browser extension integration, and reliable cloud hosting on Render.
+[171] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Product Name: ShieldJob AI – Fake Job Detection System
+[172] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Product Type: AI/ML-Powered Cybersecurity & Employment Scam Detection Platform
+[173] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Live Product URL: https://fake-job-detection-iuxn.onrender.com/#analyzer
+[174] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | GitHub Codebase: https://github.com/Coder-sai2004/Fake_Job_Detection
+[175] style=Normal align=None font=None sz=13.5 bold=True | 11.2 Research Publication Status
+[176] style=Normal align=JUSTIFY (3) font=None sz=None bold=None | Publication Status: No publication (The project was developed as a software product and internship deliverable).
+[177] style=Normal align=None font=None sz=16.0 bold=True | 12. ABOUT THE COMPANY / INTERNSHIP ORGANIZATION
+[178] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Company Name: VedXlence Innovations Pvt. Ltd.
+[179] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Company Website: https://www.vedxlence.in/
+[180] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Company Location: Hyderabad, Telangana, India
+[181] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Internship Domain: Machine Learning with Python
+[182] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Internship Duration: 2 Months (May 6, 2026 – July 5, 2026)
+[183] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Program Type: AICTE Certified Internship & Upskilling Program
+[184] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Program Structure: Phase 1 — Technical Upskilling & Training | Phase 2 — Real-World Project Implementation
+[185] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Internship Role / Designation: [NOT PROVIDED IN OFFER LETTER / PLACEHOLDER]
+[186] style=List Bullet align=JUSTIFY (3) font=None sz=None bold=None | Company Description: [NOT PROVIDED / VERIFIED FROM OFFICIAL PORTAL]
+[187] <EMPTY LINE>
+[188] style=Normal align=None font=None sz=16.0 bold=True | 13. REFERENCES
+[189] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [1] Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+[190] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [2] Google Generative AI Team. (2024). Gemini: A Family of Highly Capable Multimodal Models. Google DeepMind Technical Report.
+[191] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [3] Kaggle Dataset. (2020). Real or Fake: Fake JobPosting Prediction (EMSCAD). Available at: https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
+[192] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [4] Breiman, L. (2001). Random Forests. Machine Learning, 45(1), 5-32.
+[193] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [5] Ramos, J. (2003). Using TF-IDF to Determine Word Relevance in Document Queries. Proceedings of the First Instructional Conference on Machine Learning, 242-248.
+[194] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [6] Richardson, L. (2007). Beautiful Soup Documentation. Available at: https://www.crummy.com/software/BeautifulSoup/
+[195] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [7] Grinberg, M. (2018). Flask Web Development: Developing Web Applications with Python (2nd ed.). O'Reilly Media.
+[196] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [8] Google Chrome Developers. (2023). Chrome Extensions Documentation — Manifest V3 Overview. Available at: https://developer.chrome.com/docs/extensions/mv3/intro/
+[197] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [9] Render Cloud Platform. (2024). Render Documentation & Deployment Guides. Available at: https://render.com/docs
+[198] style=Normal align=JUSTIFY (3) font=None sz=None bold=True | [10] United Nations Department of Economic and Social Affairs. (2015). The 17 Sustainable Development Goals. United Nations.

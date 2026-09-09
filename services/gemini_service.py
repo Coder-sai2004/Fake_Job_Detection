@@ -50,40 +50,55 @@ def ask_gemini(prompt: str) -> str | dict:
             "message":    "GEMINI_API_KEY not configured in environment."
         }
 
-    try:
-        model    = _get_model()
-        response = model.generate_content(prompt)
+    import time
+    max_retries = 2
+    last_error = None
+    last_error_type = "unknown"
 
-        if not response or not hasattr(response, "text"):
-            return {
-                "error":      True,
-                "error_type": "invalid_response",
-                "message":    "Gemini returned an empty or unexpected response structure."
-            }
+    for attempt in range(max_retries + 1):
+        try:
+            model = _get_model()
+            response = model.generate_content(prompt)
 
-        return response.text
+            if not response or not hasattr(response, "text"):
+                return {
+                    "error": True,
+                    "error_type": "invalid_response",
+                    "message": "Gemini returned an empty or unexpected response structure."
+                }
 
-    except Exception as e:
-        error_str = str(e).lower()
+            return response.text
 
-        if "quota" in error_str or "429" in error_str or "resource_exhausted" in error_str:
-            error_type = "quota"
-        elif "timeout" in error_str or "deadline" in error_str:
-            error_type = "timeout"
-        elif "connection" in error_str or "network" in error_str:
-            error_type = "network"
-        elif "api_key" in error_str or "invalid_api" in error_str or "permission" in error_str:
-            error_type = "api_key"
-        else:
-            error_type = "unknown"
+        except Exception as e:
+            last_error = e
+            error_str = str(e).lower()
 
-        print(f"[gemini_service] Error ({error_type}): {e}")
+            if "quota" in error_str or "429" in error_str or "resource_exhausted" in error_str:
+                last_error_type = "quota"
+            elif "timeout" in error_str or "deadline" in error_str:
+                last_error_type = "timeout"
+            elif "connection" in error_str or "network" in error_str:
+                last_error_type = "network"
+            elif "api_key" in error_str or "invalid_api" in error_str or "permission" in error_str:
+                last_error_type = "api_key"
+                # Do not retry auth errors
+                break
+            else:
+                last_error_type = "unknown"
 
-        return {
-            "error":      True,
-            "error_type": error_type,
-            "message":    str(e)
-        }
+            if attempt < max_retries and last_error_type in ("quota", "timeout", "network"):
+                wait_sec = 2 * (attempt + 1)
+                print(f"[gemini_service] Transient error ({last_error_type}), retrying in {wait_sec}s...")
+                time.sleep(wait_sec)
+            else:
+                break
+
+    print(f"[gemini_service] Final Error ({last_error_type}): {last_error}")
+    return {
+        "error": True,
+        "error_type": last_error_type,
+        "message": str(last_error)
+    }
 
 
 def get_friendly_error_message(error_type: str) -> str:

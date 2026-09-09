@@ -1,0 +1,395 @@
+=== SECTIONS ===
+Section 0: w=595.3 h=841.9 L=72.0 R=72.0 T=72.0 B=72.0
+Header: []
+Footer: []
+Section 1: w=595.3 h=841.9 L=72.0 R=72.0 T=72.0 B=72.0
+Header: []
+Footer: []
+
+=== PARAGRAPHS ===
+[000] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | INTERNSHIP REPORT
+[001] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | A Web Based Student Permission & Leave Management System
+[002] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | Submitted in partial fulfillment of the requirements for the Summer Internship of
+[003] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | Bachelor of Technology (B.Tech.)
+[004] <EMPTY LINE>
+[005] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | Submitted by
+[006] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | K J G Durgarao (24A95A0507)      CSE
+[007] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | T Ramesh (24A95A0508)                CSE
+[008] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | P Ram Meher Teja (23A91A05B7) CSE
+[009] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | D Vamsi (25B21CS041)                  CSE
+[010] <EMPTY LINE>
+[011] <EMPTY LINE>
+[012] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | Under the Guidance of
+[013] style=Normal align=None font=None sz=12.0 bold=None | Mr. Chilli Bhanu Prakash   Assistant Professor, Dept of IT
+[014] style=Normal align=None font=None sz=12.0 bold=None | Dr. Tatapudi Prabhakara Rao Associate Professor, Dept of CSE
+[015] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | Internship Duration:
+From: 04/05/2026 To: 25/06/2026
+[016] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | in
+[017] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | Department of Computer Science & Engineering
+[018] <EMPTY LINE>
+[019] <EMPTY LINE>
+[020] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | ADITYA UNIVERSITY
+[021] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India
+[022] style=Normal align=CENTER (1) font=None sz=12.0 bold=None | 2026
+[023] <EMPTY LINE>
+[024] <EMPTY LINE>
+[025] <EMPTY LINE>
+[026] <EMPTY LINE>
+[027] style=Normal align=CENTER (1) font=None sz=8.0 bold=None | Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India
+[028] <EMPTY LINE>
+[029] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | CERTIFICATE
+[030] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | This is to certify that the project entitled “A web Based Student Permission and Leave Management System" is being submitted by K J G Durgarao (24A95A0507), T Ramesh(24A95A0508), P Ram Meher Teja (23A91A05B7), D Vamsi(25B21CS041) in partial fulfillment of the requirements for the Internship in In House Internship 2.0. The work carried out by the students is genuine and fulfills the requirements prescribed by the institution.
+[031] <EMPTY LINE>
+[032] style=Normal align=None font=None sz=12.0 bold=True | Project Guide							 Project Co-Guide
+[033] style=Normal align=None font=None sz=12.0 bold=None | Signature							 Signature
+[034] style=Normal align=None font=None sz=12.0 bold=None | Name:	Chilli Bhanu Prakash					 Name: Tatapudi Prabhakara Rao
+Designation: Assistant Professor				 Designation: Associate Professor
+[035] <EMPTY LINE>
+[036] <EMPTY LINE>
+[037] style=Normal align=None font=None sz=12.0 bold=None | Date: 25/06/2026
+Place: Surampalem
+[038] <EMPTY LINE>
+[039] <EMPTY LINE>
+[040] <EMPTY LINE>
+[041] <EMPTY LINE>
+[042] <EMPTY LINE>
+[043] <EMPTY LINE>
+[044] <EMPTY LINE>
+[045] <EMPTY LINE>
+[046] <EMPTY LINE>
+[047] <EMPTY LINE>
+[048] <EMPTY LINE>
+[049] <EMPTY LINE>
+[050] <EMPTY LINE>
+[051] <EMPTY LINE>
+[052] <EMPTY LINE>
+[053] <EMPTY LINE>
+[054] <EMPTY LINE>
+[055] <EMPTY LINE>
+[056] <EMPTY LINE>
+[057] <EMPTY LINE>
+[058] <EMPTY LINE>
+[059] <EMPTY LINE>
+[060] <EMPTY LINE>
+[061] style=Normal align=CENTER (1) font=None sz=8.0 bold=None | Aditya Nagar, ADB Road, Surampalem, Andhra Pradesh, India
+[062] <EMPTY LINE>
+[063] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | DECLARATION
+[064] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | I hereby declare that the internship report entitled "A Web Based Student Permission & Leave Management System" submitted to Aditya University Surampalem is a record of original work carried out by me during the In-House Internship period under the guidance of Mr Chilli Bhanu Prakash Assistant Professor &Dr T Prabhakara Rao Assistant Professor.
+[065] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | I further declare that this work has not been submitted elsewhere for any degree or diploma.
+[066] <EMPTY LINE>
+[067] style=Normal align=None font=None sz=12.0 bold=None | Student Signature
+[068] style=Normal align=None font=None sz=12.0 bold=None | K J G Durgarao (24A95A0507)
+[069] style=Normal align=None font=None sz=12.0 bold=None | T Ramesh (24A95A0508)
+[070] style=Normal align=None font=None sz=12.0 bold=None | P Ram Meher Teja (23A91A05B7)
+[071] style=Normal align=None font=None sz=12.0 bold=None | D Vamsi (25B21CS041)
+[072] <EMPTY LINE>
+[073] style=Normal align=None font=None sz=12.0 bold=None | Date:25/06/2026
+[074] <EMPTY LINE>
+[075] <EMPTY LINE>
+[076] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | ACKNOWLEDGEMENT
+[077] <EMPTY LINE>
+[078] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | It is with immense pleasure that we would like to express my indebted gratitude to my project guide Chilli Bhanu Prakash Assistant Professor, Dept of IT, Dr T Prabhakara Rao Associate Professor Dept of CSE who has guided us a lot and encouraged in every step of the project work. His valuable moral support and guidance throughout the project helped me to a greater extent.
+[079] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | We would also like to express our heartfelt gratitude to Dr. K Nagaraju, Internship Coordinator, for effectively organizing and coordinating the In-House Internship program.
+[080] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | We are grateful to Dr. A. Phani Sridhar Asst. Prof & HOD, for inspiring me all the way and for arranging all the facilities and resources needed for our project.
+[081] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | We wish to thank our Dr. M.V. Rajesh, Associate Dean (School of Computing), Dr. A Ramesh, Pro Vice-Chancellor (Engineering & Sciences), Dr. S. Rama Sree, Pro Vice-Chancellor (Academics) and Dr. G. Suresh, Registrar, for their encouragement and support during the course of my project.
+[082] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | We would like to extend my sincere thanks to Dr. M. B. Srinivas, Vice- Chancellor, Dr. M. Sreenivasa Reddy, Deputy Pro-Chancellor and Management, Aditya University for their unconditional support in providing me with the best infrastructural facilities and state-of-the-art laboratories during my project.
+[083] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Not to forget, Non-Teaching Staff and our Friends who have directly or indirectly supported me in completing this project on time
+[084] <EMPTY LINE>
+[085] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | K J G Durgarao(24A95A0507)
+[086] style=Normal align=None font=None sz=12.0 bold=True | T Ramesh(24A95A0508)
+[087] style=Normal align=CENTER (1) font=None sz=12.0 bold=True | P Ram Meher Teja(23A91A05B7)
+[088] style=Normal align=None font=None sz=12.0 bold=True | D Vamsi(25B21CS041)
+[089] <EMPTY LINE>
+[090] <EMPTY LINE>
+[091] <EMPTY LINE>
+[092] style=Normal align=CENTER (1) font=None sz=20.0 bold=True | Index
+[093] <EMPTY LINE>
+[094] <EMPTY LINE>
+[095] <EMPTY LINE>
+[096] <EMPTY LINE>
+[097] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Abstract
+[098] <EMPTY LINE>
+[099] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Student Permission and Leave Management System is a web-based application developed to automate and simplify the process of managing student leave and permission requests within educational institutions. Traditional paper-based leave systems are time-consuming, prone to errors, and lack transparency in the approval process. This system provides a centralized digital platform where students can submit leave or permission requests and track their status in real time.
+[100] <EMPTY LINE>
+[101] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The system implements a role-based workflow involving Students, Faculty (Proctors), Heads of Departments (HODs), Wardens, Principals, and Administrators. Once a student submits a request, it is automatically routed to the assigned proctor for review. After proctor approval, the request is forwarded to the HOD, and for hostel students, it is further sent to the Warden for final approval. The system also supports direct HOD approval when the proctor is unavailable, ensuring uninterrupted processing of requests.
+[102] <EMPTY LINE>
+[103] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | In addition to leave management, the platform includes an Announcement Management Module that enables administrators, HODs, faculty members, and wardens to share important notices with specific groups of students or staff. Announcements can include PDF documents, images, and other attachments, ensuring effective communication across the institution. The system also maintains complete records of requests, approvals, and announcement activities for future reference and reporting.
+[104] <EMPTY LINE>
+[105] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The application is built using React.js for the frontend, Express.js for the backend, and PostgreSQL (Supabase) as the database. By digitizing leave approvals and institutional communication, the Student Permission and Leave Management System reduces paperwork, improves transparency, enhances efficiency, and provides a secure and user-friendly solution for academic administration.
+[106] <EMPTY LINE>
+[107] <EMPTY LINE>
+[108] <EMPTY LINE>
+[109] <EMPTY LINE>
+[110] <EMPTY LINE>
+[111] <EMPTY LINE>
+[112] <EMPTY LINE>
+[113] <EMPTY LINE>
+[114] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | SDG Mapping
+[115] <EMPTY LINE>
+[116] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Sustainable Development Goals (SDG) Mapping
+[117] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Student Permission and Leave Management System contributes to several United Nations Sustainable Development Goals (SDGs) by promoting digital transformation, efficient administration, and inclusive education within educational institutions.
+[118] <EMPTY LINE>
+[119] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | SDG 4 – Quality Education
+[120] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The system enhances the educational environment by providing a transparent and efficient platform for managing student permissions and leave requests. It reduces administrative delays, improves communication between students and authorities, and enables students to focus more on their academic activities.
+[121] <EMPTY LINE>
+[122] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | SDG 9 – Industry, Innovation and Infrastructure
+[123] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The project utilizes modern web technologies to digitize traditional administrative processes. By replacing manual paperwork with an automated workflow, the system promotes innovation and strengthens digital infrastructure within educational institutions.
+[124] <EMPTY LINE>
+[125] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | SDG 12 – Responsible Consumption and Production
+[126] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The implementation of a paperless leave management process significantly reduces the use of paper forms, printed documents, and physical records. This contributes to sustainable resource utilization and environmentally responsible administrative practices.
+[127] <EMPTY LINE>
+[128] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | SDG 16 – Peace, Justice and Strong Institutions
+[129] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The system ensures transparency, accountability, and fairness in the leave approval process through role-based workflows and audit trails. Students can track the status of their applications, while administrators can maintain accurate records, supporting efficient and trustworthy institutional governance.
+[130] <EMPTY LINE>
+[131] <EMPTY LINE>
+[132] <EMPTY LINE>
+[133] <EMPTY LINE>
+[134] <EMPTY LINE>
+[135] <EMPTY LINE>
+[136] <EMPTY LINE>
+[137] <EMPTY LINE>
+[138] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Introduction
+[139] <EMPTY LINE>
+[140] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Educational institutions handle a large number of student leave and permission requests on a daily basis. Traditionally, these requests are managed through paper forms and manual approval processes, which often lead to delays, miscommunication, loss of records, and increased administrative workload. Students are required to visit multiple authorities to obtain approvals, while faculty members and administrators face difficulties in maintaining and tracking records efficiently. As educational institutions continue to adopt digital technologies, there is a growing need for an automated system that can streamline these processes and improve overall efficiency.
+[141] <EMPTY LINE>
+[142] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Student Permission and Leave Management System is a web-based application designed to digitize and automate the entire leave and permission approval workflow. The system provides a centralized platform where students can submit requests online, monitor their approval status, and receive timely updates. Faculty members, Heads of Departments (HODs), Wardens, Principals, and Administrators can review, approve, reject, or forward requests based on their roles and responsibilities. By eliminating manual paperwork and introducing a structured approval workflow, the system ensures transparency, accountability, and faster decision-making.
+[143] <EMPTY LINE>
+[144] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | In addition to leave management, the system includes an announcement module that enables authorized users to share important notices, circulars, and updates with students and staff. The platform supports role-based access control, secure authentication, attachment handling, and centralized record management. This ensures that information is delivered efficiently to the intended audience while maintaining data security and integrity.
+[145] <EMPTY LINE>
+[146] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The motivation behind this project is to create a reliable, user-friendly, and scalable solution that improves communication and administrative efficiency within educational institutions. By leveraging modern web technologies such as React.js, Express.js, and PostgreSQL, the system provides a secure and responsive environment for managing student permissions, leave requests, and institutional announcements. The proposed solution not only reduces administrative burden but also enhances the overall experience for students and staff by providing a transparent and efficient digital platform.
+[147] <EMPTY LINE>
+[148] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Objectives
+[149] <EMPTY LINE>
+[150] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The primary objective of the Student Permission and Leave Management System is to develop a centralized and efficient web-based platform that automates the process of managing student leave and permission requests within educational institutions. The system aims to replace traditional manual procedures with a secure digital solution that improves transparency, communication, and administrative efficiency.
+[151] <EMPTY LINE>
+[152] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The specific objectives of the project are:
+[153] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To design and develop a web-based application that enables students to submit leave and permission requests electronically and monitor their approval status in real time.
+[154] <EMPTY LINE>
+[155] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To implement a role-based access control mechanism that allows Students, Faculty (Proctors), Heads of Departments (HODs), Wardens, Principals, and Administrators to perform their respective responsibilities securely and efficiently.
+[156] <EMPTY LINE>
+[157] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To automate the leave approval workflow by routing applications through the appropriate authorities, reducing delays and minimizing manual intervention in the approval process.
+[158] <EMPTY LINE>
+[159] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To integrate modern web technologies such as React.js, Express.js, PostgreSQL, and JWT Authentication to provide a secure, scalable, and user-friendly platform.
+[160] <EMPTY LINE>
+[161] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To develop an announcement management module that enables authorized users to publish notices, circulars, and important updates with support for document and image attachments.
+[162] <EMPTY LINE>
+[163] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To maintain centralized and accurate records of leave applications, approvals, rejections, emergency requests, and announcements for future reference and reporting purposes.
+[164] <EMPTY LINE>
+[165] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To reduce paperwork, improve communication among students and institutional authorities, and enhance overall administrative productivity through digital transformation.
+[166] <EMPTY LINE>
+[167] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | ● To provide analytical reports and dashboards that help faculty members, HODs, wardens, and administrators monitor leave statistics and institutional activities effectively.
+[168] <EMPTY LINE>
+[169] <EMPTY LINE>
+[170] <EMPTY LINE>
+[171] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Methodology
+[172] <EMPTY LINE>
+[173] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The development of the Student Permission and Leave Management System followed a structured approach to ensure efficient leave management, secure authentication, and seamless communication between students and institutional authorities. The system was designed using a multi-tier architecture consisting of a frontend interface, backend services, and a centralized database. The methodology focused on automating the complete leave approval workflow while maintaining transparency and accountability throughout the process.
+[174] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Tools, Platforms, and Programming Languages Used
+[175] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The following technologies were used for the development of the project:
+[176] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Frontend: React.js, HTML5, CSS3, JavaScript
+[177] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Backend: Node.js, Express.js
+[178] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Database: PostgreSQL (Supabase)
+[179] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Authentication: JWT (JSON Web Token), Bcrypt
+[180] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | API Testing: Postman
+[181] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Version Control: Git and GitHub
+[182] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Development Environment: Visual Studio Code
+[183] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Deployment Platform: Supabase Cloud Database
+[184] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | System Workflow
+[185] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The system operates through a role-based approval mechanism:
+[186] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Students register and log in to the system.
+[187] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Students submit leave or permission requests by providing the required details.
+[188] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The application is automatically routed to the assigned Proctor (Faculty).
+[189] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Proctor reviews the request and approves or rejects it.
+[190] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Approved requests are forwarded to the respective Head of Department (HOD).
+[191] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | For hosteller students, the request is further forwarded to the Warden for final approval.
+[192] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | In exceptional situations, the HOD can directly approve requests without waiting for Proctor approval.
+[193] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Students can track the status of their applications in real time.
+[194] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Authorized users can publish announcements and notices with PDF or image attachments.
+[195] <EMPTY LINE>
+[196] style=Normal align=JUSTIFY (3) font=None sz=14.0 bold=True | System Architecture:
+[197] <EMPTY LINE>
+[198] <EMPTY LINE>
+[199] <EMPTY LINE>
+[200] <EMPTY LINE>
+[201] <EMPTY LINE>
+[202] <EMPTY LINE>
+[203] <EMPTY LINE>
+[204] <EMPTY LINE>
+[205] <EMPTY LINE>
+[206] <EMPTY LINE>
+[207] <EMPTY LINE>
+[208] <EMPTY LINE>
+[209] <EMPTY LINE>
+[210] <EMPTY LINE>
+[211] <EMPTY LINE>
+[212] <EMPTY LINE>
+[213] <EMPTY LINE>
+[214] <EMPTY LINE>
+[215] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Implementation
+[216] <EMPTY LINE>
+[217] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The implementation of the Student Permission and Leave Management System was carried out using a modular approach to ensure scalability, maintainability, and efficient management of student leave and permission requests. The system was developed using React.js for the frontend, Express.js for the backend, and PostgreSQL (Supabase) as the database. Each module was designed and integrated to support the complete workflow of leave application, approval, communication, and record management.
+[218] <EMPTY LINE>
+[219] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | Modules Developed
+[220] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 1. User Authentication Module
+[221] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Implemented secure registration and login functionality.
+[222] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Supported role-based authentication for Students, Faculty, HODs, Wardens, Principals, and Administrators.
+[223] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Integrated password encryption and JWT-based authentication for enhanced security.
+[224] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 2. Student Management Module
+[225] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Maintains student profile information such as roll number, department, year, section, and assigned proctor.
+[226] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Supports mapping of students to respective faculty members and HODs.
+[227] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 3. Leave and Permission Management Module
+[228] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Allows students to submit leave and permission requests online.
+[229] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Supports different leave types, emergency requests, leave duration, and remarks.
+[230] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Maintains complete records of submitted applications.
+[231] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 4. Approval Workflow Module
+[232] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Routes leave requests to the assigned Proctor for review.
+[233] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Forwards approved requests to the HOD and subsequently to the Warden for hostel students.
+[234] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Allows HODs to directly approve requests when required.
+[235] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Tracks approval status at every stage.
+[236] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 5. Announcement Management Module
+[237] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Enables administrators, HODs, faculty members, and wardens to publish announcements.
+[238] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Supports PDF, image, and document attachments.
+[239] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Provides targeted announcements based on department, year, role, or specific student groups.
+[240] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=True | 6. Dashboard and Reporting Module
+[241] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Displays leave statistics and application status.
+[242] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Provides monthly leave counts for faculty members and HODs.
+[243] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Generates reports for administrative monitoring and decision-making.
+[244] <EMPTY LINE>
+[245] style=Normal align=JUSTIFY (3) font=None sz=14.0 bold=True | Features Implemented
+[246] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Secure user registration and login system.
+[247] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Role-Based Access Control (RBAC).
+[248] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Student leave and permission application submission.
+[249] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Multi-level approval workflow (Proctor → HOD → Warden).
+[250] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Emergency leave request handling.
+[251] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Leave status tracking and history management.
+[252] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Announcement creation and distribution system.
+[253] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | File attachment support for announcements.
+[254] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Student and faculty profile management.
+[255] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Real-time approval monitoring.
+[256] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Monthly leave analytics and reporting.
+[257] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Centralized database management using PostgreSQL.
+[258] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Responsive and user-friendly web interface.
+[259] <EMPTY LINE>
+[260] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The successful implementation of these modules provides an efficient, transparent, and paperless solution for managing student permissions, leave requests, and institutional communication within educational institutions.
+[261] <EMPTY LINE>
+[262] <EMPTY LINE>
+[263] <EMPTY LINE>
+[264] <EMPTY LINE>
+[265] <EMPTY LINE>
+[266] <EMPTY LINE>
+[267] <EMPTY LINE>
+[268] <EMPTY LINE>
+[269] <EMPTY LINE>
+[270] <EMPTY LINE>
+[271] <EMPTY LINE>
+[272] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Results
+[273] style=Normal align=None font=None sz=12.0 bold=True | Login page
+[274] <EMPTY LINE>
+[275] style=Normal align=None font=None sz=14.0 bold=True | Student Dashborad:
+[276] <EMPTY LINE>
+[277] style=Normal align=None font=None sz=14.0 bold=True | Announcements:
+[278] <EMPTY LINE>
+[279] <EMPTY LINE>
+[280] style=Normal align=None font=None sz=14.0 bold=True | Faculty Dashborad:
+[281] <EMPTY LINE>
+[282] style=Normal align=None font=None sz=14.0 bold=True | Admin Portal:
+[283] <EMPTY LINE>
+[284] <EMPTY LINE>
+[285] <EMPTY LINE>
+[286] <EMPTY LINE>
+[287] <EMPTY LINE>
+[288] <EMPTY LINE>
+[289] <EMPTY LINE>
+[290] <EMPTY LINE>
+[291] <EMPTY LINE>
+[292] <EMPTY LINE>
+[293] <EMPTY LINE>
+[294] <EMPTY LINE>
+[295] <EMPTY LINE>
+[296] <EMPTY LINE>
+[297] <EMPTY LINE>
+[298] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Key Learnings
+[299] <EMPTY LINE>
+[300] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The development of the Student Permission and Leave Management System provided valuable technical and professional learning experiences throughout the project lifecycle. Working as a team enabled us to understand the importance of collaboration, communication, and effective task management. Responsibilities were divided among team members based on their skills and interests, which improved productivity and ensured the timely completion of project milestones. Through regular discussions and coordination, we learned how teamwork contributes significantly to the success of software development projects.
+[301] <EMPTY LINE>
+[302] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The project offered hands-on experience with modern web development technologies such as React.js, Express.js, Node.js, and PostgreSQL (Supabase). We gained practical knowledge in designing responsive user interfaces, developing RESTful APIs, implementing authentication and authorization mechanisms, managing relational databases, and integrating frontend and backend components. Additionally, we learned how to use tools such as Git, GitHub, Postman, and Visual Studio Code for version control, API testing, and project development.
+[303] <EMPTY LINE>
+[304] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Another significant learning outcome was understanding the complete software development lifecycle, including requirement analysis, database design, system architecture, implementation, testing, and deployment. We learned how to design role-based workflows, maintain data integrity using relational databases, and implement secure authentication mechanisms. The project also enhanced our problem-solving and debugging skills while working with real-world scenarios and user requirements.
+[305] <EMPTY LINE>
+[306] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Furthermore, the project helped us understand the integration of multiple technologies to solve administrative challenges in educational institutions. We gained insights into developing scalable and user-friendly applications that improve operational efficiency and communication. Overall, this project strengthened our technical knowledge, teamwork abilities, project management skills, and understanding of interdisciplinary system integration in real-world applications.
+[307] <EMPTY LINE>
+[308] <EMPTY LINE>
+[309] <EMPTY LINE>
+[310] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | Conclusion
+[311] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Student Permission and Leave Management System was successfully designed and developed to provide a digital, efficient, and transparent solution for managing student leave and permission requests within educational institutions. The system effectively replaces traditional paper-based processes with an automated workflow that simplifies application submission, approval, tracking, and record management. By implementing role-based access control and a structured approval hierarchy involving Faculty, HODs, Wardens, Principals, and Administrators, the system ensures accountability, security, and smooth communication among all stakeholders.
+[312] <EMPTY LINE>
+[313] <EMPTY LINE>
+[314] <EMPTY LINE>
+[315] <EMPTY LINE>
+[316] <EMPTY LINE>
+[317] <EMPTY LINE>
+[318] <EMPTY LINE>
+[319] <EMPTY LINE>
+[320] <EMPTY LINE>
+[321] <EMPTY LINE>
+[322] <EMPTY LINE>
+[323] <EMPTY LINE>
+[324] <EMPTY LINE>
+[325] <EMPTY LINE>
+[326] <EMPTY LINE>
+[327] <EMPTY LINE>
+[328] <EMPTY LINE>
+[329] <EMPTY LINE>
+[330] <EMPTY LINE>
+[331] <EMPTY LINE>
+[332] <EMPTY LINE>
+[333] <EMPTY LINE>
+[334] <EMPTY LINE>
+[335] <EMPTY LINE>
+[336] <EMPTY LINE>
+[337] <EMPTY LINE>
+[338] <EMPTY LINE>
+[339] <EMPTY LINE>
+[340] <EMPTY LINE>
+[341] <EMPTY LINE>
+[342] <EMPTY LINE>
+[343] <EMPTY LINE>
+[344] <EMPTY LINE>
+[345] style=List Paragraph align=CENTER (1) font=None sz=20.0 bold=True | 10. Future Scope
+[346] <EMPTY LINE>
+[347] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The Student Permission and Leave Management System can be further enhanced by incorporating advanced features and emerging technologies to improve its functionality, accessibility, and overall user experience. As educational institutions continue to adopt digital transformation, the system has significant potential for future expansion and integration with other campus management solutions.
+[348] <EMPTY LINE>
+[349] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | One of the major enhancements is the development of a mobile application for Android and iOS platforms, enabling students and faculty members to submit leave requests, receive approval notifications, and access announcements anytime and anywhere. The integration of email and SMS notification services can provide instant alerts regarding leave approvals, rejections, announcements, and important institutional updates.
+[350] <EMPTY LINE>
+[351] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | The system can also be integrated with biometric attendance systems and student attendance management software to automatically verify attendance records and prevent misuse of leave permissions. Additionally, incorporating Artificial Intelligence (AI) and Machine Learning (ML) can help analyze leave patterns, identify frequent absentees, predict leave trends, and generate intelligent reports to support institutional decision-making.
+[352] <EMPTY LINE>
+[353] style=Normal align=JUSTIFY (3) font=None sz=12.0 bold=None | Future versions of the system can support cloud deployment, enabling multiple campuses or educational institutions to use the platform through a centralized infrastructure. Features such as multi-college support, advanced analytics dashboards, document verification, digital signatures, and integration with ERP systems can further enhance the efficiency and scalability of the application. These improvements will transform the project into a comprehensive educational administration platform capable of managing permissions, communication, attendance, and institutional workflows in a secure and intelligent manner.
+[354] <EMPTY LINE>
+[355] <EMPTY LINE>
+[356] <EMPTY LINE>
+[357] <EMPTY LINE>
+[358] <EMPTY LINE>
+[359] <EMPTY LINE>
+[360] <EMPTY LINE>
+[361] <EMPTY LINE>
+[362] <EMPTY LINE>
+[363] <EMPTY LINE>
+[364] style=Normal align=CENTER (1) font=None sz=20.0 bold=True | 11.  References
+[365] <EMPTY LINE>
+[366] style=Normal align=None font=None sz=12.0 bold=None | React Documentation. Available at: https://react.dev/
+[367] style=Normal align=None font=None sz=12.0 bold=None | Express.js Documentation. Available at: https://expressjs.com/
+[368] style=Normal align=None font=None sz=12.0 bold=None | Node.js Documentation. Available at: https://nodejs.org/docs/latest/api/
+[369] style=Normal align=None font=None sz=12.0 bold=None | PostgreSQL Documentation. Available at: https://www.postgresql.org/docs/
+[370] style=Normal align=None font=None sz=12.0 bold=None | Supabase Documentation. Available at: https://supabase.com/docs
+[371] style=Normal align=None font=None sz=12.0 bold=None | JavaScript (MDN Web Docs). Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[372] style=Normal align=None font=None sz=12.0 bold=None | HTML5 Documentation (MDN Web Docs). Available at: https://developer.mozilla.org/en-US/docs/Web/HTML
+[373] style=Normal align=None font=None sz=12.0 bold=None | CSS Documentation (MDN Web Docs). Available at: https://developer.mozilla.org/en-US/docs/Web/CSS
+[374] style=Normal align=None font=None sz=12.0 bold=None | JWT (JSON Web Token) Documentation. Available at: https://jwt.io/
+[375] style=Normal align=None font=None sz=12.0 bold=None | Bcrypt Documentation (npm). Available at: https://www.npmjs.com/package/bcrypt
+[376] style=Normal align=None font=None sz=12.0 bold=None | Git Documentation. Available at: https://git-scm.com/doc
+[377] style=Normal align=None font=None sz=12.0 bold=None | GitHub Documentation. Available at: https://docs.github.com/
+[378] style=Normal align=None font=None sz=12.0 bold=None | Postman Learning Center. Available at: https://learning.postman.com/
+[379] style=Normal align=None font=None sz=12.0 bold=None | Visual Studio Code Documentation. Available at: https://code.visualstudio.com/docs
+[380] style=Normal align=None font=None sz=12.0 bold=None | United Nations Sustainable Development Goals (SDGs). Available at: https://sdgs.un.org/goals
+[381] style=Normal align=None font=None sz=12.0 bold=None | Aditya Campus ERP portal Available at: https://info.aec.edu.in/aec/default.aspx
+[382] <EMPTY LINE>
