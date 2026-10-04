@@ -1,4 +1,3 @@
-
 let currentAnalysisData = null;
 
 function renderResults(data) {
@@ -1013,4 +1012,3 @@ function renderResults(data) {
             updateNavBadge();
             loadModelMetrics();
         });
-    </script>
