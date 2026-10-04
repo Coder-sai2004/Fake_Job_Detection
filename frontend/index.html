@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldJob AI — Free AI Job Scam Detector &amp; Safety Checker</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Check if any job posting, recruiter email, or WhatsApp message is real or a scam in seconds. Powered by Machine Learning and AI.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Decorative Glow Effects -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <a href="#analyzer" class="brand" onclick="switchPage('analyzer'); return false;">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">ShieldJob <span class="accent-text">AI</span></span>
+                    <span class="brand-tagline">Smart Job Scam Detector</span>
+                </div>
+            </a>
+
+            <!-- Center Navigation Links -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="#analyzer" class="nav-link active" id="nav-analyzer" onclick="switchPage('analyzer'); return false;">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>Job Checker</span>
+                </a>
+                <a href="#history" class="nav-link" id="nav-history" onclick="switchPage('history'); return false;">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Scan History</span>
+                    <span class="nav-badge" id="historyNavBadge" style="display:none;">0</span>
+                </a>
+                <a href="#metrics" class="nav-link" id="nav-metrics" onclick="switchPage('metrics'); return false;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Accuracy &amp; Proof</span>
+                </a>
+                <a href="#how-it-works" class="nav-link" id="nav-how-it-works" onclick="switchPage('how-it-works'); return false;">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>How It Works</span>
+                </a>
+            </nav>
+
+            <!-- Right Status Indicator & Mobile Toggle -->
+            <div class="nav-right">
+                <div class="nav-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">AI Protection Active</span>
+                </div>
+                <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- ================================================================= -->
+            <!-- PAGE 1: JOB CHECKER PAGE                                          -->
+            <!-- ================================================================= -->
+            <div class="page-view active" id="page-analyzer">
+                
+                <!-- Hero Header Section -->
+                <section class="hero-section">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-shield-check"></i> Free AI Job Scam Detector
+                    </div>
+                    <h1 class="hero-title">Is That Job Offer <span class="gradient-text">Real or a Scam?</span></h1>
+                    <p class="hero-subtitle">
+                        Don't fall for fake recruiters, fake interview offers, or upfront registration fees. Paste any job posting below to get an instant safety check.
+                    </p>
+                </section>
+
+                <!-- AI Unavailable Banner -->
+                <div id="aiWarningContainer"></div>
+
+                <!-- Analysis Input Form Card -->
+                <section class="analyzer-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fa-solid fa-paste"></i>
+                            <h2>Paste &amp; Verify Job Posting</h2>
+                        </div>
+                        <span class="security-tag"><i class="fa-solid fa-lock"></i> 100% Private &amp; Safe</span>
+                    </div>
+
+                    <form method="POST" action="/" class="analysis-form" id="analyzerForm">
+                        
+                        <!-- Job Description Input -->
+                        <div class="input-group">
+                            <div class="input-label-row">
+                                <label for="job_description">
+                                    <i class="fa-solid fa-file-lines"></i> Job Details / Offer Message <span class="required-asterisk">*</span>
+                                </label>
+                                <span class="char-counter" id="charCounter">0 characters &bull; 0 words</span>
+                            </div>
+
+                            <div class="textarea-wrapper">
+                                <textarea 
+                                    name="job_description" 
+                                    id="job_description" 
+                                    placeholder="Paste the job description, WhatsApp message, interview email, or recruitment post here..."
+                                    required
+                        <textarea id="job_description" name="job_description" class="job-textarea" placeholder="Paste the complete job description, requirements, email body, or WhatsApp message here..."></textarea>
+                                
+                                <div class="quick-samples-bar">
+                                    <span class="samples-label">Try an Example:</span>
+                                    <button type="button" class="sample-btn real-sample-btn" onclick="fillSample('real')">
+                                        <i class="fa-solid fa-circle-check"></i> Sample Real Tech Job
+                                    </button>
+                                    <button type="button" class="sample-btn fake-sample-btn" onclick="fillSample('fake')">
+                                        <i class="fa-solid fa-triangle-exclamation"></i> Sample High-Risk Scam
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company Website Input (Optional) -->
+                        <div class="input-group website-group">
+                            <label for="company_website">
+                                <i class="fa-solid fa-globe"></i> Company Website <span class="optional-badge">(Optional)</span>
+                            </label>
+                            <div class="input-with-icon">
+                                <i class="fa-solid fa-link input-icon"></i>
+                                <input 
+                                    type="url" 
+                                    id="company_website" 
+                                    name="company_website" 
+                                    placeholder="https://www.company.com" 
+                                    class="form-input" id="company_website" name="company_website"
+                                >
+                            </div>
+                            <p class="input-hint">If provided, we will check if the company's official domain is genuine and active.</p>
+                        </div>
+
+                        <!-- Submit Action Button -->
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Check Job Safety</span>
+                            <i class="fa-solid fa-arrow-right btn-icon"></i>
+                        </button>
+
+                    </form>
+                </section>
+
+                <!-- RESULT DASHBOARD SECTION -->
+
+                <!-- Dynamic Results Section (Populated by app.js) -->
+                <div id="resultsContainer"></div>
+
+                <!-- Interactive Example Templates Section -->
+                <section class="examples-section">
+                    <div class="section-header">
+                        <h3 class="section-title"><i class="fa-solid fa-vials"></i> Try a Test Example</h3>
+                        <p class="section-sub">Click a sample below to see how our 4 safety layers analyze real vs fake job postings.</p>
+                    </div>
+
+                    <div class="examples-grid">
+                        
+                        <!-- Real Job Card -->
+                        <div class="example-card example-real">
+                            <div class="example-card-header">
+                                <div class="example-title">
+                                    <i class="fa-solid fa-circle-check icon-real"></i>
+                                    <h4>Genuine Tech Role Example</h4>
+                                </div>
+                                <span class="example-tag tag-real">Real Job Pattern</span>
+                            </div>
+
+                            <div class="example-preview" id="realSampleText">Software Engineer
+
+Company: Goldman Sachs
+
+Requirements:
+* Bachelor's Degree in Computer Science or related field
+* 2+ years experience with Python, SQL, REST APIs
+* Strong problem solving and team collaboration skills
+
+Benefits:
+* Health &amp; Life Insurance
+* Competitive Compensation &amp; 401(k)
+* Career Growth Opportunities</div>
+
+                            <button class="use-sample-btn" onclick="fillSample('real')">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i> Load This Example
+                            </button>
+                        </div>
+
+                        <!-- Fake Job Card -->
+                        <div class="example-card example-fake">
+                            <div class="example-card-header">
+                                <div class="example-title">
+                                    <i class="fa-solid fa-triangle-exclamation icon-fake"></i>
+                                    <h4>Common Fee Scam Example</h4>
+                                </div>
+                                <span class="example-tag tag-fake">Scam Pattern</span>
+                            </div>
+
+                            <div class="example-preview" id="fakeSampleText">Earn ₹50,000/week from home!
+
+No experience or degree required. Data entry and online form filling role.
+
+Registration fee of ₹1,500 mandatory for training materials kit.
+
+Limited seats available! Contact immediately on WhatsApp to confirm slot.</div>
+
+                            <button class="use-sample-btn" onclick="fillSample('fake')">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i> Load This Example
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- PAGE 2: SCAN HISTORY PAGE                                         -->
+            <!-- ================================================================= -->
+            <div class="page-view" id="page-history">
+                
+                <section class="history-page-hero">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-clock-rotate-left"></i> Your Saved Scans
+                    </div>
+                    <h1 class="page-main-title">Scan <span class="gradient-text">History</span></h1>
+                    <p class="page-main-subtitle">
+                        Keep track of all the job offers you've checked. Click on any job description to view the full text, copy it, or re-run the scan.
+                    </p>
+                </section>
+
+                <div class="history-stats-bar" id="historyStatsBar">
+                    <div class="history-stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statTotalCount">0</span>
+                            <span class="stat-lbl">Jobs Checked</span>
+                        </div>
+                    </div>
+                    <div class="history-stat-card stat-safe">
+                        <div class="stat-icon"><i class="fa-solid fa-shield-check"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statRealCount">0</span>
+                            <span class="stat-lbl">Safe &amp; Real</span>
+                        </div>
+                    </div>
+                    <div class="history-stat-card stat-danger">
+                        <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statFakeCount">0</span>
+                            <span class="stat-lbl">Scams Flagged</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="history-card-panel">
+                    <div class="section-title-row">
+                        <h3 class="section-title"><i class="fa-solid fa-table-list"></i> Past Job Scans</h3>
+                        <div class="history-actions">
+                            <button class="history-action-btn" id="clearHistoryBtn" onclick="clearAllHistory()">
+                                <i class="fa-solid fa-trash"></i> Clear History
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="historyContainer">
+                        <div class="history-empty" id="historyEmpty">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <h4>No Scan History Yet</h4>
+                            <p>You haven't scanned any jobs yet. Head over to the Job Checker to check your first job offer!</p>
+                            <button class="use-sample-btn" style="margin-top:14px;" onclick="switchPage('analyzer')">
+                                <i class="fa-solid fa-magnifying-glass"></i> Go to Job Checker
+                            </button>
+                        </div>
+
+                        <div class="history-table-wrapper" id="historyTableWrapper" style="display:none;">
+                            <table class="history-table" id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th style="min-width: 260px;">Job Posting (Click to View)</th>
+                                        <th>Verdict</th>
+                                        <th>Safety Score</th>
+                                        <th>Risk Level</th>
+                                        <th>Checked On</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <!-- Rows populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- PAGE 3: ACCURACY & MODEL PROOF PAGE                               -->
+            <!-- ================================================================= -->
+            <div class="page-view" id="page-metrics">
+                
+                <section class="metrics-page-hero">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-bullseye"></i> Verified Benchmark
+                    </div>
+                    <h1 class="page-main-title">How Accurate Is <span class="gradient-text">ShieldJob AI?</span></h1>
+                    <p class="page-main-subtitle">
+                        Our model was evaluated across <strong>17,880 historical job postings</strong> using rigorous <strong>5-Fold Stratified Cross-Validation (Leak-Free)</strong> with balanced class weighting.
+                    </p>
+                </section>
+
+                <div class="metrics-grid" id="metricsGrid">
+                    <div class="metrics-loading" id="metricsLoading">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Loading accuracy statistics...
+                    </div>
+                </div>
+
+                <!-- Confusion Matrix Card -->
+                <div class="confusion-section" id="confusionSection" style="display:none;">
+                    <div class="intel-card" style="padding: 28px;">
+                        <div class="intel-header">
+                            <div class="intel-title">
+                                <i class="fa-solid fa-table-cells-large"></i>
+                                <h3>5-Fold Out-of-Fold Evaluation Breakdown</h3>
+                            </div>
+                            <span class="security-tag" id="cmSampleTag">17,880 Postings Evaluated</span>
+                        </div>
+                        
+                        <div class="confusion-matrix-wrapper">
+                            <div class="cm-table-wrapper">
+                                <table class="confusion-matrix" id="confusionMatrix">
+                                    <!-- Populated by JS -->
+                                </table>
+                            </div>
+                            <div class="cm-legend" id="cmLegend">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- PAGE 4: HOW IT WORKS PAGE                                         -->
+            <!-- ================================================================= -->
+            <div class="page-view" id="page-how-it-works">
+                
+                <section class="howto-page-hero">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-lightbulb"></i> Simple Explanation
+                    </div>
+                    <h1 class="page-main-title">How ShieldJob <span class="gradient-text">Protects You</span></h1>
+                    <p class="page-main-subtitle">
+                        Instead of guessing, we use a 4-layer safety check to inspect the job wording, company background, official website, and online footprint.
+                    </p>
+                </section>
+
+                <!-- Pipeline Grid -->
+                <div class="howto-pipeline-container">
+                    <h3 class="section-title" style="margin-bottom: 20px;">
+                        <i class="fa-solid fa-shield-halved"></i> The 4 Safety Layers
+                    </h3>
+
+                    <div class="pipeline-flow">
+                        
+                        <div class="flow-card">
+                            <div class="flow-num">1</div>
+                            <div class="flow-icon"><i class="fa-solid fa-microchip"></i></div>
+                            <h4>1. Pattern Matcher (30%)</h4>
+                            <p>Scans text patterns against 17,800+ known legitimate and fraudulent job postings.</p>
+                        </div>
+
+                        <div class="flow-card">
+                            <div class="flow-num">2</div>
+                            <div class="flow-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <h4>2. AI Content Inspector (30%)</h4>
+                            <p>Spots red flags like fake interview promises, upfront fees, unrealistic salaries, or pressure tactics.</p>
+                        </div>
+
+                        <div class="flow-card">
+                            <div class="flow-num">3</div>
+                            <div class="flow-icon"><i class="fa-solid fa-globe"></i></div>
+                            <h4>3. Website Authenticity (20%)</h4>
+                            <p>Visits the employer's official website to confirm real business operations and professional identity.</p>
+                        </div>
+
+                        <div class="flow-card">
+                            <div class="flow-num">4</div>
+                            <div class="flow-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                            <h4>4. Company Reputation (20%)</h4>
+                            <p>Checks public presence across LinkedIn, employee reviews, and scam alert databases.</p>
+                        </div>
+
+                        <div class="flow-card">
+                            <div class="flow-num">5</div>
+                            <div class="flow-icon"><i class="fa-solid fa-calculator"></i></div>
+                            <h4>5. Unified Safety Score</h4>
+                            <p>Combines all 4 layers into a single 0–100 score so you get an instant, trustworthy answer.</p>
+                        </div>
+
+                        <div class="flow-card">
+                            <div class="flow-num">6</div>
+                            <div class="flow-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <h4>6. Actionable Intelligence</h4>
+                            <p>Get clear explainable red flags, instant summary copying, and local scan history tracking.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Weighted Scoring Formula Card -->
+                <div class="intel-card" style="margin-top: 30px; padding: 28px;">
+                    <div class="intel-header">
+                        <div class="intel-title">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h3>How to Understand Your Safety Score</h3>
+                        </div>
+                    </div>
+                    <p class="intel-summary" style="margin-bottom: 16px;">
+                        The final score (0–100) tells you how safe the job opportunity is:
+                    </p>
+
+                    <div class="threshold-grid">
+                        <div class="threshold-item item-real">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>70 – 100: Safe to Apply</strong>
+                                <span>High confidence that the company and posting are genuine.</span>
+                            </div>
+                        </div>
+                        <div class="threshold-item item-suspicious">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div>
+                                <strong>50 – 69: Proceed with Caution</strong>
+                                <span>Mixed signals. Verify company details directly on their official careers page.</span>
+                            </div>
+                        </div>
+                        <div class="threshold-item item-fake">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                            <div>
+                                <strong>0 – 49: Danger — Likely a Scam</strong>
+                                <span>Matches known scam tricks. Never pay any fee or send identity documents.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Full Job Description View Modal -->
+    <div class="job-modal-overlay" id="jobModalOverlay" onclick="closeJobModal(event)">
+        <div class="job-modal-card" onclick="event.stopPropagation()">
+            <div class="job-modal-header">
+                <div class="job-modal-title">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h3>Full Job Posting Text</h3>
+                </div>
+                <button class="job-modal-close" onclick="closeJobModal()" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="job-modal-meta" id="jobModalMeta">
+                <!-- Meta tags inserted dynamically -->
+            </div>
+
+            <div class="job-modal-body">
+                <pre id="jobModalContent" class="job-modal-pre"></pre>
+            </div>
+
+            <div class="job-modal-actions">
+                <button class="action-btn" id="modalCopyBtn" onclick="copyModalJobText()">
+                    <i class="fa-solid fa-copy"></i> Copy Text
+                </button>
+                <button class="submit-btn" id="modalReanalyzeBtn" onclick="reanalyzeModalJob()" style="margin-top:0; width:auto; padding:10px 20px; font-size:0.95rem;">
+                    <i class="fa-solid fa-arrow-rotate-right"></i> Re-Scan This Job
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay Modal (Triggered on Submit via JS) -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-card">
+            <div class="scanner-line"></div>
+            <div class="loading-icon-wrapper">
+                <i class="fa-solid fa-brain-circuit loading-spinner"></i>
+            </div>
+            <h3>Checking Job Safety...</h3>
+            <p class="loading-subtext">Scanning signals across 4 safety layers</p>
+
+            <div class="stages-list">
+                <div class="stage-item active" id="stage1">
+                    <i class="fa-solid fa-spinner fa-spin stage-icon"></i>
+                    <span>Reading job details &amp; salary terms</span>
+                </div>
+                <div class="stage-item" id="stage2">
+                    <i class="fa-regular fa-circle stage-icon"></i>
+                    <span>Looking for known scam phrases &amp; fee tricks</span>
+                </div>
+                <div class="stage-item" id="stage3">
+                    <i class="fa-regular fa-circle stage-icon"></i>
+                    <span>Validating company website &amp; domain authenticity</span>
+                </div>
+                <div class="stage-item" id="stage4">
+                    <i class="fa-regular fa-circle stage-icon"></i>
+                    <span>Checking public company footprint &amp; reputation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 ShieldJob AI &bull; Smart Job Scam Detector &amp; Safety Platform.</p>
+            <p class="footer-note">Combining Machine Learning, Generative AI, Website Audits, and Reputation Checks to keep job seekers safe.</p>
+        </div>
+    </footer>
+
+    <!-- Client-Side JavaScript -->
+
+    <!-- Configuration & Application Scripts -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

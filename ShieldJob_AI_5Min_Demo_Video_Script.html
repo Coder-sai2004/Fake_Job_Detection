@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShieldJob AI — 5-Minute LinkedIn Video Demo Script & Presentation Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.5;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #064e3b 100%);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .header h1 {
+    margin: 0 0 6px 0;
+    font-size: 19pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .header h1 span {
+    color: #10b981;
+  }
+
+  .header-subtitle {
+    font-size: 10.5pt;
+    color: #94a3b8;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 8.5pt;
+    color: #cbd5e1;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 10px;
+  }
+
+  .badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 8pt;
+  }
+
+  .section-title {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title span.num {
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 8.5pt;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 8.5pt;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 10px;
+    text-align: left;
+  }
+
+  th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  .scene-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #10b981;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .scene-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .scene-time {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: #065f46;
+    background: #ecfdf5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #a7f3d0;
+  }
+
+  .scene-visual {
+    font-size: 8.5pt;
+    color: #475569;
+    font-weight: 600;
+  }
+
+  .script-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 6px;
+    font-size: 9pt;
+    color: #0f172a;
+    line-height: 1.55;
+  }
+
+  .script-box p {
+    margin: 0 0 6px 0;
+  }
+  .script-box p:last-child {
+    margin: 0;
+  }
+
+  .action-tip {
+    font-size: 8pt;
+    color: #b45309;
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+
+  .info-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .info-box h4 {
+    margin: 0 0 6px 0;
+    font-size: 9.5pt;
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .info-box ul {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 8.5pt;
+    color: #334155;
+  }
+
+  .info-box li {
+    margin-bottom: 4px;
+  }
+
+  .code-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    line-height: 1.45;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 8pt;
+    color: #94a3b8;
+    margin-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>ShieldJob <span>AI</span> — 5-Minute LinkedIn Video Demo Guide</h1>
+    <div class="header-subtitle">Live Camera + OBS Screen Walkthrough Script, Demo Assets & Post Strategy</div>
+    <div class="header-meta">
+      <div><strong>Target Duration:</strong> 4:30 – 5:00 Minutes</div>
+      <div><strong>Recording Mode:</strong> OBS Studio (PiP Facecam + Screen Capture)</div>
+      <div><span class="badge">LinkedIn Portfolio Video</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: OVERVIEW & TIMELINE -->
+  <div class="section-title"><span class="num">1</span> Video Structure & Timing Timeline</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">Timestamp</th>
+        <th style="width: 25%;">Section Title</th>
+        <th style="width: 30%;">Visual Scene on OBS</th>
+        <th style="width: 30%;">Core Objective</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>0:00 – 0:45</strong></td>
+        <td><strong>Hook & Self Introduction</strong></td>
+        <td>Full-Screen Facecam</td>
+        <td>Grab attention with a relatable scam problem & introduce yourself.</td>
+      </tr>
+      <tr>
+        <td><strong>0:45 – 1:30</strong></td>
+        <td><strong>Motivation & Solution</strong></td>
+        <td>Facecam + Web App Landing Tab</td>
+        <td>Explain why standard tools fail and introduce ShieldJob AI's ecosystem.</td>
+      </tr>
+      <tr>
+        <td><strong>1:30 – 2:45</strong></td>
+        <td><strong>Live Demo: Flask Web App</strong></td>
+        <td>Screen Share + Camera Bubble in Corner</td>
+        <td>Live scan of a fake job, show score breakdown, explainability & PDF export.</td>
+      </tr>
+      <tr>
+        <td><strong>2:45 – 3:45</strong></td>
+        <td><strong>Live Demo: Chrome Extension</strong></td>
+        <td>Screen Share (LinkedIn / Job portal)</td>
+        <td>Demonstrate 1-click scanning directly in the browser via Manifest V3.</td>
+      </tr>
+      <tr>
+        <td><strong>3:45 – 4:30</strong></td>
+        <td><strong>Under the Hood (4 Pillars)</strong></td>
+        <td>Screen Share (Accuracy & Metrics tab)</td>
+        <td>Highlight ML (97.5% acc), Gemini AI, Domain check & live reputation.</td>
+      </tr>
+      <tr>
+        <td><strong>4:30 – 5:00</strong></td>
+        <td><strong>Conclusion & Call to Action</strong></td>
+        <td>Full-Screen Facecam</td>
+        <td>Summarize key learnings, invite comments & direct to GitHub repository.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: WORD-BY-WORD SCRIPT -->
+  <div class="section-title"><span class="num">2</span> Scene-by-Scene Word-for-Word Speaking Script</div>
+
+  <!-- SCENE 1 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">0:00 – 0:45 (45s) | Scene 1: The Hook & Intro</span>
+      <span class="scene-visual">🎬 Visual: Full-Screen Camera (Confident, Smiling)</span>
+    </div>
+    <div class="script-box">
+      <p><em>"Hi everyone! I’m <strong>[Your Name]</strong>, an aspiring AI and Software Engineer.</em></p>
+      <p><em>Have you or someone in your network ever applied for an online job, only to receive a shady email asking for a 'refundable security deposit' or directing you to an interview on Telegram?</em></p>
+      <p><em>Employment fraud is at an all-time high, targeting students and remote job seekers. To tackle this challenge during my internship, I built <strong>ShieldJob AI</strong> — an intelligent, multi-pillar detection platform that analyzes job postings in real time to protect applicants before they click apply."</em></p>
+    </div>
+    <div class="action-tip">💡 <strong>Delivery Tip:</strong> Look directly into the camera lens with energetic pacing. Hook the viewer in the first 10 seconds.</div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">0:45 – 1:30 (45s) | Scene 2: Problem Statement & Why ShieldJob AI</span>
+      <span class="scene-visual">🎬 Visual: Switch to Screen Share (Web App Landing) + Camera in Corner</span>
+    </div>
+    <div class="script-box">
+      <p><em>"When researching existing solutions, I noticed that most tools rely solely on basic keyword matching. But modern scammers are smart: they copy real company branding and create convincing fake websites.</em></p>
+      <p><em>I wanted to build a production-grade system that goes beyond surface text and evaluates the <strong>entire recruitment ecosystem</strong>: analyzing text patterns, verifying company domain authenticity, and auditing online social reputation.</em></p>
+      <p><em>Let’s jump right into a live demonstration to see how it works!"</em></p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SCENE 3 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">1:30 – 2:45 (75s) | Scene 3: Live Demo — Flask Web Application</span>
+      <span class="scene-visual">🎬 Visual: Web App at http://127.0.0.1:5000 (Dark Cyber Sentinel Theme)</span>
+    </div>
+    <div class="script-box">
+      <p><em>"Here is the <strong>ShieldJob AI</strong> web application. It’s built on Flask with a responsive single-page architecture.</em></p>
+      <p><em>Let's test a suspicious job description: a remote Data Entry role offering $5,000 a week with an upfront registration fee via Telegram.</em></p>
+      <p><em>I paste the description, enter the website URL, and hit <strong>'Analyze Job Safety'</strong>...</em></p>
+      <p><em>Within seconds, ShieldJob AI gives us a multi-dimensional assessment:</em></p>
+      <p><em>• <strong>Unified Safety Score:</strong> It immediately classifies this posting as <strong>High Risk / Fake Job</strong> (Rose/Red) with a safety score under 50.</em><br>
+      <em>• <strong>Explainable AI Insights:</strong> It pinpoints exact red flags — unrealistic salary anomalies, payment demands, and suspicious communication channels.</em><br>
+      <em>• <strong>Audit Features:</strong> The scan is saved locally in our <strong>Scan History</strong> tab, and we can generate a downloadable <strong>PDF Report</strong> with a single click."</em></p>
+    </div>
+    <div class="action-tip">💡 <strong>Action Tip:</strong> Keep the sample text copied in your clipboard or a notepad so you can paste and click analyze smoothly without delays.</div>
+  </div>
+
+  <!-- SCENE 4 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">2:45 – 3:45 (60s) | Scene 4: Live Demo — Chrome Extension</span>
+      <span class="scene-visual">🎬 Visual: Switch to LinkedIn / Job Board tab with Extension Popup</span>
+    </div>
+    <div class="script-box">
+      <p><em>"Now, we know that job seekers don't want to switch tabs and copy-paste text for every single job they see. To make this seamless, I also built a <strong>Google Chrome Extension (Manifest V3)</strong>.</em></p>
+      <p><em>Imagine you're browsing jobs on LinkedIn or Internshala. With one click on the <strong>ShieldJob AI</strong> extension icon:</em></p>
+      <p><em>It communicates directly with our backend REST API, evaluates the posting, and displays the safety gauge and risk highlights right inside your browser popup.</em></p>
+      <p><em>It gives applicants instantaneous, frictionless protection directly at the point of application."</em></p>
+    </div>
+  </div>
+
+  <!-- SCENE 5 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">3:45 – 4:30 (45s) | Scene 5: Under the Hood (The 4-Pillar Engine)</span>
+      <span class="scene-visual">🎬 Visual: 'Accuracy & Proof' or 'How It Works' Tab on the Web App</span>
+    </div>
+    <div class="script-box">
+      <p><em>"Behind the scenes, ShieldJob AI uses a balanced <strong>4-Pillar Scoring Architecture</strong>:</em></p>
+      <p><em>1. <strong>Machine Learning (30%):</strong> A Random Forest classifier with TF-IDF vectorization trained on ~17,880 historical job postings, achieving <strong>97.5% accuracy</strong> and an <strong>85.3% fraud recall</strong>.</em><br>
+      <em>2. <strong>Generative AI (30%):</strong> Powered by Google Gemini to analyze nuanced recruitment intent, compensation realism, and subtle scam triggers.</em><br>
+      <em>3. <strong>Website Verification (20%):</strong> Scraping and checking SSL security and domain credibility.</em><br>
+      <em>4. <strong>Reputation & Social Verification (20%):</strong> Cross-referencing real-time web search and community scam databases.</em></p>
+      <p><em>This multi-layer validation drastically cuts down both false positives and missed scams."</em></p>
+    </div>
+  </div>
+
+  <!-- SCENE 6 -->
+  <div class="scene-card">
+    <div class="scene-header">
+      <span class="scene-time">4:30 – 5:00 (30s) | Scene 6: Conclusion & Call to Action</span>
+      <span class="scene-visual">🎬 Visual: Full-Screen Facecam (Warm & Professional)</span>
+    </div>
+    <div class="script-box">
+      <p><em>"Building ShieldJob AI has been an incredible hands-on journey in full-stack AI engineering — combining Machine Learning, LLMs, Flask APIs, and browser extensions into a user-centric product.</em></p>
+      <p><em>The entire project is open-source and available on my GitHub. I've linked the repository in the post description.</em></p>
+      <p><em>I would love to hear your thoughts, feedback, and ideas in the comments below. Thank you so much for watching!"</em></p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SECTION 3: TEST DATA & RECORDING CHECKLIST -->
+  <div class="section-title"><span class="num">3</span> Demo Test Data & OBS Setup Checklist</div>
+  
+  <div class="card-grid">
+    <div class="info-box">
+      <h4>🚨 Sample Scam Job (For Demo)</h4>
+      <p style="font-size: 8pt; color: #64748b; margin-bottom: 4px;">Paste this during the Web App demo:</p>
+      <div class="code-block">Role: Remote Data Entry & Form Filling
+Company: Global Tech Solutions Ltd
+Salary: $5,000 / week (No experience needed)
+Website: http://www.globaltech-quickjobs.xyz
+
+Description:
+Earn $5,000 weekly from home! Immediate start. 
+Requirements: Any smartphone or laptop. 
+To confirm your seat, send a refundable registration fee of $50 via Telegram to @HR_Recruiter_2026.</div>
+    </div>
+
+    <div class="info-box">
+      <h4>🎥 OBS Studio Quick Settings</h4>
+      <ul>
+        <li><strong>Resolution:</strong> 1920 × 1080 (16:9, 30 or 60 fps).</li>
+        <li><strong>Layout:</strong> Screen Capture on Canvas + Camera in a bottom-right rectangle (Picture-in-Picture).</li>
+        <li><strong>Hotkeys:</strong> Set F9 to Start/Stop Recording and F10 to switch between Full Facecam and Screen Share.</li>
+        <li><strong>Audio:</strong> Keep mic volume in the green/yellow zone (-12dB to -6dB).</li>
+        <li><strong>Browser Setup:</strong> Fullscreen browser (F11), clean dark theme, zoom at 100% or 110%.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 4: READY-TO-POST LINKEDIN COPY -->
+  <div class="section-title"><span class="num">4</span> Companion LinkedIn Post Copy (Ready to Paste)</div>
+  <div class="code-block">🚨 Spotting fake jobs before they scam you: Introducing ShieldJob AI 🛡️
+
+With remote hiring on the rise, recruitment scams have become increasingly sophisticated — from phantom job drives to advance-fee fraud.
+
+During my recent internship, I set out to solve this real-world problem by building ShieldJob AI — an end-to-end AI system that verifies job legitimacy in seconds.
+
+🎥 Check out the 5-minute live demo video above!
+
+✨ Key Highlights & Features:
+🔹 4-Pillar Scoring Engine: Combines Scikit-Learn ML (97.5% Accuracy), Google Gemini AI, Domain Verification, and Social Reputation.
+🔹 Explainable AI: Doesn't just give a blind score; it highlights exact scam triggers (salary anomalies, suspicious telegram contacts, upfront fees).
+🔹 Chrome Extension (Manifest V3): 1-click verification directly on LinkedIn and job portals.
+🔹 Exportable PDF Reports & Local Scan History tracking.
+
+💻 Tech Stack: Python (Flask), Scikit-Learn (Random Forest), Google Gemini AI, BeautifulSoup, JavaScript (SPA + Manifest V3 Extension), CSS3.
+
+Check out the code & documentation on GitHub: [Your GitHub Repo Link]
+
+I would love to hear your thoughts and feedback in the comments! 👇
+
+#MachineLearning #ArtificialIntelligence #Python #Flask #GeminiAI #WebDevelopment #CyberSecurity #JobSearch #PortfolioProject</div>
+
+  <div class="footer-note">
+    ShieldJob AI — Built for Academic & Professional Portfolio Presentation • Document Generated for Video Presentation
+  </div>
+
+</body>
+</html>
